@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c73r124bkooct"]
+
+[ext_resource type="Script" path="res://Scenes/Player/Scripts/player.gd" id="1_3wlay"]
+[ext_resource type="Texture2D" uid="uid://0ajkqn0k0uvc" path="res://Scenes/Player/Sprite/armand 64.png" id="1_f4m8c"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_3wlay")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(220, 107)
+texture = ExtResource("1_f4m8c")
