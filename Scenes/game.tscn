@@ -1,15 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dho0ya6sp6a0l"]
+[gd_scene load_steps=4 format=3 uid="uid://dho0ya6sp6a0l"]
 
 [ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="1_w4c3o"]
 [ext_resource type="PackedScene" uid="uid://2ggtren3rbrp" path="res://Scenes/Prison/prison.tscn" id="2_nag4h"]
+[ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="3_ksrcu"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_w4c3o")]
 top_level = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
 
 [node name="Prison" parent="." instance=ExtResource("2_nag4h")]
+position = Vector2(-145, 174)
 scale = Vector2(2, 2)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ksrcu")
+volume_db = -5.0
+autoplay = true
