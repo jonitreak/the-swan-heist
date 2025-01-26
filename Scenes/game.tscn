@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dho0ya6sp6a0l"]
+
+[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="1_w4c3o"]
+[ext_resource type="PackedScene" uid="uid://2ggtren3rbrp" path="res://Scenes/Prison/prison.tscn" id="2_nag4h"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_w4c3o")]
+top_level = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Prison" parent="." instance=ExtResource("2_nag4h")]
+scale = Vector2(2, 2)
