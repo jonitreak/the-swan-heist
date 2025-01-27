@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c586uc0b15skt"
-path="res://.godot/imported/sandbox.png-467560676c6bbb5a648e5b03b51678cf.ctex"
+uid="uid://c25fbmmlp8v08"
+path="res://.godot/imported/2.png-c73fbfbc59097d7cbcc5379e0cf50a34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Prison/spritesheet/sandbox.png"
-dest_files=["res://.godot/imported/sandbox.png-467560676c6bbb5a648e5b03b51678cf.ctex"]
+source_file="res://Assets/Sprite/spritesheet/2.png"
+dest_files=["res://.godot/imported/2.png-c73fbfbc59097d7cbcc5379e0cf50a34.ctex"]
 
 [params]
 

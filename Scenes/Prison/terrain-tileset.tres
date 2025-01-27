@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://nm1kcvffunua"]
 
-[ext_resource type="Texture2D" uid="uid://d21bi5nhdtt00" path="res://Scenes/Prison/spritesheet/terrain-atlas.png" id="1_7tlxt"]
+[ext_resource type="Texture2D" uid="uid://d21bi5nhdtt00" path="res://Assets/Sprite/spritesheet/terrain-atlas.png" id="1_ryxed"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ks2a"]
-texture = ExtResource("1_7tlxt")
+texture = ExtResource("1_ryxed")
 texture_region_size = Vector2i(32, 32)
 0:0/next_alternative_id = 3
 0:0/0 = 0

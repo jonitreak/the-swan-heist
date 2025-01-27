@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d21bi5nhdtt00"
-path="res://.godot/imported/terrain-atlas.png-ad5c58f4c0d5ba40a10e2f92d19e4638.ctex"
+uid="uid://0ajkqn0k0uvc"
+path="res://.godot/imported/armand 64.png-99489da89fcac552c5f530e14acff3ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Prison/spritesheet/terrain-atlas.png"
-dest_files=["res://.godot/imported/terrain-atlas.png-ad5c58f4c0d5ba40a10e2f92d19e4638.ctex"]
+source_file="res://Assets/Sprite/armand 64.png"
+dest_files=["res://.godot/imported/armand 64.png-99489da89fcac552c5f530e14acff3ce.ctex"]
 
 [params]
 

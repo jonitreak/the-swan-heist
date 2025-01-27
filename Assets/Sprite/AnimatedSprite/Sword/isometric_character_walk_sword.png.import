@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://egncxwak7yj2"
-path="res://.godot/imported/1.png-fa5bddfc2f6207b56e11537f860ddd94.ctex"
+uid="uid://d1atba0g7876l"
+path="res://.godot/imported/isometric_character_walk_sword.png-574cabcbecf4ef9855efd4f3495a459c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Prison/spritesheet/1.png"
-dest_files=["res://.godot/imported/1.png-fa5bddfc2f6207b56e11537f860ddd94.ctex"]
+source_file="res://Assets/Sprite/AnimatedSprite/Sword/isometric_character_walk_sword.png"
+dest_files=["res://.godot/imported/isometric_character_walk_sword.png-574cabcbecf4ef9855efd4f3495a459c.ctex"]
 
 [params]
 
