@@ -2,9 +2,12 @@ extends CharacterBody2D
 
 class_name Player 
 
-const max_speed = 200
+const max_speed = 100
 var last_direction:=Vector2(1,0)
 var sword:=bool(false)
+
+func _ready(): 
+	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
@@ -101,3 +104,6 @@ func play_sword_idle_animation(direction):
 	if direction.x==0 and direction.y<0 : 
 		$AnimatedSprite2D.play("SwordIdleAnimationUp")
 		
+func _on_spawn(position:Vector2,direction: String): 
+	global_position=position
+	#play_idle_animation(direction)

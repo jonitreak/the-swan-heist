@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" path="res://Scenes/Door/door.gd" id="1_0oc1o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_716ct"]
-size = Vector2(37, 38)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_31nhl"]
 
 [node name="door" type="Area2D"]
 script = ExtResource("1_0oc1o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_716ct")
+shape = SubResource("CapsuleShape2D_31nhl")
 
 [node name="Spawn" type="Marker2D" parent="."]
 

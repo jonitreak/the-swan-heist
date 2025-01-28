@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 TransitionScreen="*res://Scenes/Transition_screen/transition_screen.tscn"
+NavigationManager="*res://Global/Script/navigation_manager.gd"
 
 [display]
 
@@ -27,12 +28,16 @@ window/size/viewport_height=270
 [file_customization]
 
 folder_colors={
-"res://Assets/": "red",
+"res://Assets/": "yellow",
 "res://Assets/Music/": "purple",
 "res://Assets/Sprite/": "pink",
+"res://Global/": "green",
 "res://Scenes/": "orange",
+"res://Scenes/Door/": "teal",
+"res://Scenes/Levels/": "purple",
 "res://Scenes/Player/": "blue",
-"res://Scenes/Prison/": "teal"
+"res://Scenes/Prison/": "yellow",
+"res://Scenes/Transition_screen/": "pink"
 }
 
 [rendering]

@@ -1,33 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dho0ya6sp6a0l"]
+[gd_scene load_steps=2 format=3 uid="uid://dho0ya6sp6a0l"]
 
-[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="1_w4c3o"]
-[ext_resource type="PackedScene" uid="uid://bbt1id5mp236e" path="res://Scenes/Levels/Level1_Spawn/level_1_spawn.tscn" id="3_0www8"]
-[ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="3_ksrcu"]
-[ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="4_61pq7"]
+[ext_resource type="PackedScene" uid="uid://bbt1id5mp236e" path="res://Scenes/Levels/Level_1_spawn.tscn" id="3_0www8"]
 
 [node name="Game" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_w4c3o")]
-top_level = true
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
-
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ksrcu")
-volume_db = -5.0
-autoplay = true
-
-[node name="Level1_spawn" parent="." instance=ExtResource("3_0www8")]
-scale = Vector2(2, 2)
-
-[node name="Doors" type="Node" parent="."]
-
-[node name="door1" parent="Doors" instance=ExtResource("4_61pq7")]
-position = Vector2(975, 28)
-
-[node name="Spawn" parent="Doors/door1" index="1"]
-position = Vector2(-34, 17)
-
-[editable path="Doors/door1"]
+[node name="Level1" parent="." instance=ExtResource("3_0www8")]
