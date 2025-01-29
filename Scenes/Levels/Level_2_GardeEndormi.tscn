@@ -162,7 +162,6 @@ tile_set = SubResource("TileSet_y0n15")
 [node name="Doors" type="Node" parent="."]
 
 [node name="door_1" parent="Doors" instance=ExtResource("3_xf24p")]
-visible = false
 position = Vector2(39, -13)
 rotation = -0.947714
 scale = Vector2(0.973878, -1.42877)
@@ -171,6 +170,19 @@ destination_door_tag = "1"
 
 [node name="Spawn" parent="Doors/door_1" index="1"]
 position = Vector2(18.4201, -9.077)
+
+[node name="door_2" parent="Doors" instance=ExtResource("3_xf24p")]
+position = Vector2(39, -13)
+rotation = -0.947714
+scale = Vector2(0.973878, -1.42877)
+destination_level_tag = "level3"
+destination_door_tag = "1"
+
+[node name="CollisionShape2D" parent="Doors/door_2" index="0"]
+position = Vector2(-59.057, 222.737)
+
+[node name="Spawn" parent="Doors/door_2" index="1"]
+position = Vector2(-35.7636, 218.633)
 
 [node name="Player" parent="." instance=ExtResource("4_lcg32")]
 position = Vector2(132, -32)
@@ -186,3 +198,4 @@ volume_db = -5.0
 autoplay = true
 
 [editable path="Doors/door_1"]
+[editable path="Doors/door_2"]

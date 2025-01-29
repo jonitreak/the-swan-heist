@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Player 
 
-const max_speed = 100
+const max_speed = 200
 var last_direction:=Vector2(1,0)
 var sword:=bool(false)
 
