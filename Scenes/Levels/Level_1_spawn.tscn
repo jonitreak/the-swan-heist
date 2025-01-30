@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=4 uid="uid://bbt1id5mp236e"]
+[gd_scene load_steps=15 format=4 uid="uid://bbt1id5mp236e"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_316t0"]
 [ext_resource type="Texture2D" uid="uid://bf347i1ehf8gj" path="res://Assets/Sprite/spritesheet/lava.png" id="2_0g6vw"]
 [ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="3_s7laa"]
 [ext_resource type="Texture2D" uid="uid://cfft7vaasbr83" path="res://Assets/Sprite/spritesheet/currently_used/furniture_reduite2.png" id="3_xfy0s"]
 [ext_resource type="Texture2D" uid="uid://bxrcqtbpdu4id" path="res://Assets/Sprite/spritesheet/currently_used/stonewallsblock.png" id="4_0tmps"]
-[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="4_cmd4d"]
+[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/player.tscn" id="4_cmd4d"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="5_p67kb"]
+[ext_resource type="PackedScene" uid="uid://c1q0vwh4a6216" path="res://Scenes/Life bar/LifeBar.tscn" id="8_xmrvi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mt1rh"]
 texture = ExtResource("2_0g6vw")
@@ -253,5 +254,11 @@ position_smoothing_enabled = true
 stream = ExtResource("5_p67kb")
 volume_db = -5.0
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LifeBar" parent="CanvasLayer" instance=ExtResource("8_xmrvi")]
+
+[connection signal="health_changed" from="Player" to="CanvasLayer/LifeBar" method="_on_player_health_changed"]
 
 [editable path="Doors/door_1"]

@@ -6,6 +6,8 @@ const max_speed = 200
 var last_direction:=Vector2(1,0)
 var sword:=bool(false)
 
+signal health_changed(new_value)
+
 func _ready(): 
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 
