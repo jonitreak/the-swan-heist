@@ -7,6 +7,8 @@ var last_direction:=Vector2(1,0)
 var sword:=bool(false)
 var can_move:=bool(true)
 
+signal health_changed(new_value)
+
 func _ready(): 
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	CaughtTransition.on_caught_transition_started.connect(_on_transition_started)

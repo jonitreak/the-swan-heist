@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bf347i1ehf8gj" path="res://Assets/Sprite/spritesheet/lava.png" id="2_88b85"]
 [ext_resource type="Texture2D" uid="uid://bxrcqtbpdu4id" path="res://Assets/Sprite/spritesheet/currently_used/stonewallsblock.png" id="3_m0hv4"]
 [ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="3_xf24p"]
-[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="4_lcg32"]
+[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/player.tscn" id="4_lcg32"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="5_6sq7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3da3o"]
