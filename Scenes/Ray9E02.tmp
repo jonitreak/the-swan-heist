@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci7iubv3m6v7e"]
+
+[ext_resource type="Script" path="res://Global/Script/GeneratingRay.gd" id="1_pvll8"]
+
+[node name="Rays" type="Node2D"]
+script = ExtResource("1_pvll8")

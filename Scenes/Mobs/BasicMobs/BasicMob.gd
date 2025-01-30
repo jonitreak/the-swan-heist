@@ -17,6 +17,9 @@ var animations : Dictionary = {
 
 func get_direction_angle():
 	return direction_angle
+	
+func isVisible():
+	return visible
 
 func _ready():
 	update_animation()

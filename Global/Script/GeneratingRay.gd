@@ -3,17 +3,36 @@ class_name Ray
 
 @export var player : Player
 @export var cone_direction_angle : float = 0.0
+@export var mob: Mob
+@export var steak_area : Area2D
 
 var max_view_distance := 300
 var angle_between_rays := deg_to_rad(5.0)
 var raycasts : Array = []
 
+signal steak_activated
+
 
 func _ready():
-	if player:
-		create_raycasts()
-	else:
-		print("Erreur : Player non défini dans l'éditeur !")
+	if player :
+		if mob==null :
+			create_raycasts()
+		elif mob.visible: 
+			create_raycasts()
+			steak_area.connect("steak_activated", Callable(self, "_destroy"))
+		else: 
+			steak_area.connect("steak_activated", Callable(self, "_on_steak"))
+		
+func _destroy():
+	for raycast in raycasts:
+		raycast.queue_free()  # Supprime tous les RayCasts
+	raycasts.clear()  # Vide la liste
+	queue_free()  # Supprime le nœud principal
+	mob.visible=false
+
+func _on_steak():
+	mob.visible=true
+	create_raycasts()
 
 func create_raycasts() -> void:
 	var ray_count = 6
@@ -26,7 +45,7 @@ func create_raycasts() -> void:
 		raycast.target_position = position + direction
 		raycast.collide_with_areas = true
 		raycast.collide_with_bodies = true
-		raycast.enabled = true
+		raycast.enabled = visible
 		raycast.collision_mask = 1
 		add_child(raycast)
 		raycasts.append(raycast)
@@ -38,7 +57,6 @@ func _physics_process(delta: float) -> void:
 		if raycast.is_colliding():
 			var collider = raycast.get_collider()
 			if collider == player:
-				print("Vu: Player")
 				NavigationManager.go_to_level("level1", "0")
 
 
