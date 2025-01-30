@@ -13,6 +13,8 @@ var animations : Dictionary = {
 	"down" : "MobIdleDown",
 	"down_right" : "MobIdleDownRight"
 }
+
+
 func get_direction_angle():
 	return direction_angle
 
@@ -21,7 +23,7 @@ func _ready():
 
 func update_animation() -> void:
 	var direction = get_direction_from_angle(direction_angle)
-	var animation_name = animations.get(direction, "MobIdleDown")  # Défaut à "MobIdleRight" si direction non trouvée
+	var animation_name = animations.get(direction, "MobIdleDown")
 	play_animation(animation_name)
 
 func get_direction_from_angle(angle : float) -> String:

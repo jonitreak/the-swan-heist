@@ -5,19 +5,34 @@ class_name Player
 const max_speed = 200
 var last_direction:=Vector2(1,0)
 var sword:=bool(false)
+var can_move:=bool(true)
 
 func _ready(): 
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+	CaughtTransition.on_caught_transition_started.connect(_on_transition_started)
+	CaughtTransition.on_caught_transition_finished.connect(_on_transition_finished)
+
+func _on_transition_started():
+	can_move = false  
+
+func _on_transition_finished():
+	can_move = true   
+
 
 func _physics_process(delta: float) -> void:
+	if not can_move:  
+		velocity = Vector2.ZERO
+		play_idle_animation(last_direction)
+		return
+
 	var direction = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
-	velocity= direction*max_speed
+	velocity = direction * max_speed
 	move_and_slide()
 	
-	if direction.length()>0:
-		last_direction=direction
+	if direction.length() > 0:
+		last_direction = direction
 		play_walk_animation(direction)
-	else : 
+	else:
 		play_idle_animation(last_direction)
 
 func play_walk_animation(direction):

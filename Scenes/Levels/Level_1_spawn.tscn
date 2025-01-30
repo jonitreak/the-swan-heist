@@ -229,6 +229,14 @@ tile_set = SubResource("TileSet_pa2nv")
 
 [node name="Doors" type="Node" parent="."]
 
+[node name="door_0" parent="Doors" instance=ExtResource("3_s7laa")]
+
+[node name="CollisionShape2D" parent="Doors/door_0" index="0"]
+position = Vector2(-53, 31)
+
+[node name="Spawn" parent="Doors/door_0" index="1"]
+position = Vector2(16, -5)
+
 [node name="door_1" parent="Doors" instance=ExtResource("3_s7laa")]
 position = Vector2(566, -179)
 rotation = -1.02276
@@ -254,4 +262,5 @@ stream = ExtResource("5_p67kb")
 volume_db = -5.0
 autoplay = true
 
+[editable path="Doors/door_0"]
 [editable path="Doors/door_1"]

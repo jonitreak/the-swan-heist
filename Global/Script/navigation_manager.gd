@@ -18,10 +18,16 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load=scene_level3
 
 	if scene_to_load!=null:
-		TransitionScreen.transition()
-		await TransitionScreen.on_transition_finished
-		spawn_door_tag=destination_tag
-		get_tree().change_scene_to_packed(scene_to_load)
+		if destination_tag=="0":
+			CaughtTransition.transition()
+			await CaughtTransition.on_caught_transition_finished
+			spawn_door_tag=destination_tag
+			get_tree().change_scene_to_packed(scene_to_load)
+		else: 
+			TransitionScreen.transition()
+			await TransitionScreen.on_transition_finished
+			spawn_door_tag=destination_tag
+			get_tree().change_scene_to_packed(scene_to_load)
 		
 
 			

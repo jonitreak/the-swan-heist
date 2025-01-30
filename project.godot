@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 TransitionScreen="*res://Scenes/Transition_screen/transition_screen.tscn"
 NavigationManager="*res://Global/Script/navigation_manager.gd"
+CaughtTransition="*res://Scenes/Transition_screen/caught_transition.tscn"
+GeneratingRay="*res://Global/Script/GeneratingRay.gd"
 
 [display]
 

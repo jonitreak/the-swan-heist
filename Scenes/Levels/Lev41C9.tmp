@@ -238,7 +238,7 @@ tile_set = SubResource("TileSet_hy4vx")
 
 [node name="Furniture" type="TileMapLayer" parent="."]
 position = Vector2(-16, 8)
-tile_map_data = PackedByteArray("AAD//wIABAAAAAUAAAD+/wgABAACAAMAAAD9/wcABAAEAAIAAAD9/woABAABAAAAAAD8/wkABAABAAAAAAD8/wgABAABAAAAAAD8/wwABAACAAMAAAD7/wsABAAEAAIAAAD5/w0ABAAAAAUAAAD3/xEABAAAAAUAAAD3/xYABAACAAMAAAD2/xUABAAEAAIAAADz/wsABAABAAAAAADz/woABAABAAAAAADy/wkABAABAAAAAADy/wgABAABAAAAAADv//7/BAABAAAAAADv////BAABAAAAAADv/wAABAABAAAAAADs/wEABAAEAAMAAADt/wAABAACAAIAAAD8//r/BAAAAAUAAAD8//n/BAAAAAUAAAD9//j/BAAAAAUAAAD8//b/BAACAAIAAAD7//f/BAAEAAMAAAD5//n/BAABAAAAAAD5//j/BAABAAAAAAD4//f/BAABAAAAAAD4//b/BAABAAAAAAD5//D/BAAAAAUAAAD4//H/BAAAAAUAAAD2//D/BAABAAAAAAD2/+z/BAAEAAMAAAD2/+v/BAACAAIAAAD1/+//BAABAAAAAAD2/wIABAADAAEAAAD2/wEABAAEAAAAAAD3/wAABAAEAAAAAAD1/wEABAAEAAAAAAD1/wAABAAEAAAAAAD2/wAABAAEAAAAAAD0////BAABAAEAAAD2//z/BAACAAEAAAD2//3/BAAEAAAAAAD2//7/BAAEAAAAAAD1////BAAEAAAAAAD1//7/BAAEAAAAAAD1//3/BAAEAAAAAAD3////BAAEAAEAAAD3//7/BAAEAAAAAAD2////BAAEAAAAAAD0/wIABAAAAAMAAAD1/wQABAAAAAMAAAD3/wQABAAAAAIAAAD4/wIABAAAAAIAAAD0//z/BAAAAAEAAAD1//r/BAAAAAEAAAD3//r/BAAAAAAAAAD4//z/BAAAAAAAAAD9//f/BAAAAAUAAADr////BAAAAAUAAADr/wAABAAAAAUAAADs//3/BAAAAAUAAADs//7/BAAAAAUAAAD5/+//BAAAAAUAAAA=")
+tile_map_data = PackedByteArray("AAD//wIABAAAAAUAAAD+/wgABAACAAMAAAD9/wcABAAEAAIAAAD9/woABAABAAAAAAD8/wkABAABAAAAAAD8/wgABAABAAAAAAD8/wwABAACAAMAAAD7/wsABAAEAAIAAAD5/w0ABAAAAAUAAAD3/xEABAAAAAUAAAD3/xYABAACAAMAAAD2/xUABAAEAAIAAADz/wsABAABAAAAAADz/woABAABAAAAAADy/wkABAABAAAAAADy/wgABAABAAAAAADv//7/BAABAAAAAADv////BAABAAAAAADv/wAABAABAAAAAADs/wEABAAEAAMAAADt/wAABAACAAIAAADr////BAABAAAAAADs//7/BAABAAAAAADs//3/BAABAAAAAAD8//r/BAAAAAUAAAD8//n/BAAAAAUAAAD9//j/BAAAAAUAAAD8//b/BAACAAIAAAD7//f/BAAEAAMAAAD5//n/BAABAAAAAAD5//j/BAABAAAAAAD4//f/BAABAAAAAAD4//b/BAABAAAAAAD5//D/BAAAAAUAAAD4//H/BAAAAAUAAAD2//D/BAABAAAAAAD2/+z/BAAEAAMAAAD2/+v/BAACAAIAAAD1/+//BAABAAAAAAD2/wIABAADAAEAAAD2/wEABAAEAAAAAAD3/wAABAAEAAAAAAD1/wEABAAEAAAAAAD1/wAABAAEAAAAAAD2/wAABAAEAAAAAAD0////BAABAAEAAAD2//z/BAACAAEAAAD2//3/BAAEAAAAAAD2//7/BAAEAAAAAAD1////BAAEAAAAAAD1//7/BAAEAAAAAAD1//3/BAAEAAAAAAD3////BAAEAAEAAAD3//7/BAAEAAAAAAD2////BAAEAAAAAAD0/wIABAAAAAMAAAD1/wQABAAAAAMAAAD3/wQABAAAAAIAAAD4/wIABAAAAAIAAAD0//z/BAAAAAEAAAD1//r/BAAAAAEAAAD3//r/BAAAAAAAAAD4//z/BAAAAAAAAAA=")
 tile_set = SubResource("TileSet_b05bb")
 
 [node name="Wall" type="TileMapLayer" parent="."]
@@ -278,7 +278,7 @@ autoplay = true
 [node name="BasicsMobs" type="Node" parent="."]
 
 [node name="Mob_1" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
-position = Vector2(-155, -35)
+position = Vector2(-201, -73)
 scale = Vector2(0.54, 0.54)
 direction_angle = -45.0
 
@@ -293,7 +293,6 @@ direction_angle = 135.0
 
 [node name="Rays" parent="BasicsMobs/Mob_2" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
 player = NodePath("../../../Player")
-cone_direction_angle = 135.0
 
 [node name="Mob_3" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
 position = Vector2(-293, -20)
@@ -302,7 +301,6 @@ direction_angle = -135.0
 
 [node name="Rays" parent="BasicsMobs/Mob_3" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
 player = NodePath("../../../Player")
-cone_direction_angle = 45.0
 
 [node name="Mob_4" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
 position = Vector2(-378, -3)
@@ -311,7 +309,6 @@ direction_angle = -45.0
 
 [node name="Rays" parent="BasicsMobs/Mob_4" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
 player = NodePath("../../../Player")
-cone_direction_angle = -45.0
 
 [node name="Mob_5" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
 position = Vector2(-350, 43)
@@ -320,32 +317,5 @@ direction_angle = 45.0
 
 [node name="Rays" parent="BasicsMobs/Mob_5" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
 player = NodePath("../../../Player")
-cone_direction_angle = -135.0
-
-[node name="Mob_6" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
-position = Vector2(-532, -93)
-scale = Vector2(0.54, 0.54)
-direction_angle = -45.0
-
-[node name="Rays" parent="BasicsMobs/Mob_6" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
-player = NodePath("../../../Player")
-cone_direction_angle = -45.0
-
-[node name="Mob_7" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
-position = Vector2(-421, 13)
-scale = Vector2(0.54, 0.54)
-direction_angle = -90.0
-
-[node name="Rays" parent="BasicsMobs/Mob_7" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
-player = NodePath("../../../Player")
-
-[node name="Mob_8" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
-position = Vector2(-352, -25)
-scale = Vector2(0.54, 0.54)
-direction_angle = 45.0
-
-[node name="Rays" parent="BasicsMobs/Mob_8" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
-player = NodePath("../../../Player")
-cone_direction_angle = -135.0
 
 [editable path="Doors/door_1"]
