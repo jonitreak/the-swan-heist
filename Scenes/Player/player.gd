@@ -6,6 +6,7 @@ const max_speed = 200
 var last_direction:=Vector2(1,0)
 var sword:=bool(false)
 var can_move:=bool(true)
+var is_attacking:=bool(false)
 
 func _ready(): 
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
@@ -18,22 +19,30 @@ func _on_transition_started():
 func _on_transition_finished():
 	can_move = true   
 
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		print("attaque")
+		play_attack_animation(last_direction)
+
 
 func _physics_process(delta: float) -> void:
 	if not can_move:  
 		velocity = Vector2.ZERO
 		play_idle_animation(last_direction)
 		return
-
-	var direction = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
-	velocity = direction * max_speed
-	move_and_slide()
+	if is_attacking:
+		velocity = Vector2.ZERO
+		return
+	if is_attacking==false:
+		var direction = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+		velocity = direction * max_speed
+		move_and_slide()
 	
-	if direction.length() > 0:
-		last_direction = direction
-		play_walk_animation(direction)
-	else:
-		play_idle_animation(last_direction)
+		if direction.length() > 0:
+			last_direction = direction
+			play_walk_animation(direction)
+		else:
+			play_idle_animation(last_direction)
 
 func play_walk_animation(direction):
 	if self.get_meta("sword") : 
@@ -46,7 +55,16 @@ func play_idle_animation(direction):
 		play_sword_idle_animation(direction)
 	else : 
 		play_basic_idle_animation(direction)
-		
+
+func play_attack_animation(direction):
+	if self.get_meta("sword") : 
+		is_attacking=true
+		play_sword_attack_animation(direction)
+	else : 
+		pass
+
+
+
 func play_basic_walk_animation(direction): 
 	if direction.x>0 and direction.y==0 : 
 		$AnimatedSprite2D.play("BasicWalkAnimationRight")
@@ -119,6 +137,17 @@ func play_sword_idle_animation(direction):
 	if direction.x==0 and direction.y<0 : 
 		$AnimatedSprite2D.play("SwordIdleAnimationUp")
 		
+func play_sword_attack_animation(direction): 
+	if direction.x==0 and direction.y>0 : 
+		$AnimatedSprite2D.play("SwordAttackAnimationDown")
+		var timer = get_tree().create_timer(0.5)
+		await timer.timeout
+		is_attacking=false
+		$AnimatedSprite2D.play("SwordIdleAnimationDown")
+	else: 
+		is_attacking=false
+	
+
 func _on_spawn(position:Vector2,direction: String): 
 	global_position=position
 	#play_idle_animation(direction)
