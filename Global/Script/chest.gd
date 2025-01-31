@@ -5,6 +5,8 @@ signal on_sword_chest_animation_finished
 @onready var chest_animation=$ChestAnimation
 @onready var sword_obtained_animation=$Sword
 
+@export var worldState: Resource
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		print("chest1 ouvert")

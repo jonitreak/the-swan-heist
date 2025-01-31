@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1q0vwh4a6216"]
+[gd_scene load_steps=4 format=3 uid="uid://c1q0vwh4a6216"]
 
 [ext_resource type="Script" path="res://Scenes/Life bar/life_bar.gd" id="1_71c0i"]
 [ext_resource type="Texture2D" uid="uid://b6g7mtt8y5pbd" path="res://Assets/Sprite/heart/6.png" id="1_ewy6s"]
+[ext_resource type="Resource" uid="uid://ck2sdap3xspf7" path="res://Global/Ressource/playerState.tres" id="2_my8ol"]
 
 [node name="LifeBar" type="CanvasLayer"]
 script = ExtResource("1_71c0i")
+playerState = ExtResource("2_my8ol")
 
-[node name="HeartSprite" type="Sprite2D" parent="."]
-position = Vector2(34, 36)
-scale = Vector2(3, 3)
+[node name="HeartSprite" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_ewy6s")
+expand_mode = 2
+stretch_mode = 4

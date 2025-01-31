@@ -1,6 +1,9 @@
-extends Node
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ck2sdap3xspf7"]
 
-var health: int = 5
+[sub_resource type="GDScript" id="GDScript_yq6to"]
+script/source = "extends Resource
+
+@export var health: int
 signal health_change(old_value, new_value)
 signal death()
 
@@ -15,12 +18,8 @@ func take_damage(amount: int):
 			health = 0
 			health_change.emit(old_health, 0)
 			death.emit()
+"
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_released("take_damage"):
-		take_damage(1)
+[resource]
+script = SubResource("GDScript_yq6to")
+health = 5
