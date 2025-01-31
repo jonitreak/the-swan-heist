@@ -11,10 +11,10 @@ var hearts = [
 
 func _ready() -> void:
 	PlayerState.health_change.connect(_on_health_change)
-	get_node("HeartSprite").texture = hearts[PlayerState.health]
+	get_node("Control/HeartSprite").texture = hearts[PlayerState.health]
 
 func _process(delta: float) -> void:
 	pass
 
 func _on_health_change(old_value, new_value):
-	get_node("HeartSprite").texture = hearts[new_value]
+	get_node("Control/HeartSprite").texture = hearts[new_value]

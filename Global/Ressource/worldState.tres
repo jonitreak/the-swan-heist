@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dvtxenwebujmh"]
+
+[sub_resource type="GDScript" id="GDScript_waiw7"]
+script/source = "extends Resource
+
+@export var sword_unlocked: bool
+@export var crossbow_unlocked: bool
+@export var staff_unlocked: bool
+@export var hook_unlocked: bool
+"
+
+[resource]
+script = SubResource("GDScript_waiw7")
+sword_unlocked = false
+crossbow_unlocked = false
+staff_unlocked = false
+hook_unlocked = false

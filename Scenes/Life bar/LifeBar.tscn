@@ -6,7 +6,14 @@
 [node name="LifeBar" type="CanvasLayer"]
 script = ExtResource("1_71c0i")
 
-[node name="HeartSprite" type="Sprite2D" parent="."]
-position = Vector2(34, 36)
-scale = Vector2(3, 3)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HeartSprite" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("1_ewy6s")
