@@ -1207,7 +1207,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BasicMob" type="Node2D"]
+[node name="BasicMob" type="Node2D" groups=["Mob"]]
 script = ExtResource("1_l2hef")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
