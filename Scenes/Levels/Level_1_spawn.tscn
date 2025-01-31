@@ -263,17 +263,7 @@ stream = ExtResource("5_p67kb")
 volume_db = -5.0
 autoplay = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="LifeBar" parent="CanvasLayer" instance=ExtResource("8_xmrvi")]
-
-[connection signal="health_changed" from="Player" to="CanvasLayer/LifeBar" method="_on_player_health_changed"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="LifeBar" parent="CanvasLayer" instance=ExtResource("8_xmrvi")]
-
-[connection signal="health_changed" from="Player" to="CanvasLayer/LifeBar" method="_on_player_health_changed"]
+[node name="LifeBar" parent="." instance=ExtResource("8_xmrvi")]
 
 [editable path="Doors/door_0"]
 [editable path="Doors/door_1"]

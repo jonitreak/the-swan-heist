@@ -1,13 +1,11 @@
 extends CharacterBody2D
 
-class_name Player 
+class_name Player
 
 const max_speed = 200
 var last_direction:=Vector2(1,0)
 var sword:=bool(false)
 var can_move:=bool(true)
-
-signal health_changed(new_value)
 
 func _ready(): 
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)

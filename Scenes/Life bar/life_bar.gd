@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 var hearts = [
 	preload("res://Assets/Sprite/heart/0.png"),
@@ -9,16 +9,12 @@ var hearts = [
 	preload("res://Assets/Sprite/heart/5.png"),
 ]
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	PlayerState.health_change.connect(_on_health_change)
+	get_node("HeartSprite").texture = hearts[PlayerState.health]
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_player_health_changed(new_value: int) -> void:
-	if new_value < 6 and new_value > 0:
-		get_node("Sprite2D").texture = hearts[new_value]
+func _on_health_change(old_value, new_value):
+	get_node("HeartSprite").texture = hearts[new_value]
