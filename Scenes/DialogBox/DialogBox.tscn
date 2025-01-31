@@ -1,31 +1,60 @@
-[gd_scene format=3 uid="uid://c1pdl6ajeyqxp"]
+[gd_scene load_steps=3 format=3 uid="uid://c1pdl6ajeyqxp"]
 
-[node name="DialogBox" type="Control"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 3
+[ext_resource type="Texture2D" uid="uid://ba6mn73170qcj" path="res://Assets/Sprite/dialog_box.png" id="1_0jhbb"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_goxrf"]
+
+[node name="DialogBox" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 3
 size_flags_vertical = 8
-text = "This is an example dialog box !"
+alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_0jhbb")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+alignment = 1
+
+[node name="ColorRect" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("PlaceholderTexture2D_goxrf")
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+autowrap_mode = 3
+clip_text = true
