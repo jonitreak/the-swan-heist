@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://b2570u4clqq83"]
+[gd_scene load_steps=50 format=4 uid="uid://cmlhadlx3b3nq"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_s4xdk"]
 [ext_resource type="Texture2D" uid="uid://bf347i1ehf8gj" path="res://Assets/Sprite/spritesheet/lava.png" id="2_87kj3"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="4_ot2mv"]
 [ext_resource type="Texture2D" uid="uid://cn5gbgqlp20lp" path="res://Assets/Sprite/spritesheet/currently_used/AoM2_resized.png" id="4_u10nr"]
 [ext_resource type="Script" path="res://Global/Script/chest.gd" id="4_uqkib"]
-[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/player.tscn" id="5_6w5lb"]
+[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="5_6w5lb"]
 [ext_resource type="Resource" uid="uid://dvtxenwebujmh" path="res://Global/Ressource/worldState.tres" id="5_13odi"]
 [ext_resource type="Texture2D" uid="uid://m2gdsh3dqrpc" path="res://Assets/Sprite/AnimatedSprite/Object/objectAnimation.png" id="6_luujw"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="6_n3s2i"]
@@ -479,6 +479,7 @@ player = NodePath("../../../Player")
 
 [node name="Chest_2" type="Area2D" parent="Chests"]
 script = ExtResource("4_uqkib")
+worldState = ExtResource("5_13odi")
 
 [node name="ChestAnimation" type="AnimatedSprite2D" parent="Chests/Chest_2"]
 position = Vector2(2, -53)
@@ -494,6 +495,7 @@ shape = SubResource("CapsuleShape2D_vvgh3")
 
 [node name="Chest_3" type="Area2D" parent="Chests"]
 script = ExtResource("4_uqkib")
+worldState = ExtResource("5_13odi")
 
 [node name="ChestAnimation" type="AnimatedSprite2D" parent="Chests/Chest_3"]
 position = Vector2(37, -68)
@@ -509,6 +511,7 @@ shape = SubResource("CapsuleShape2D_vvgh3")
 
 [node name="Chest_4" type="Area2D" parent="Chests"]
 script = ExtResource("4_uqkib")
+worldState = ExtResource("5_13odi")
 
 [node name="ChestAnimation" type="AnimatedSprite2D" parent="Chests/Chest_4"]
 position = Vector2(68, -84)

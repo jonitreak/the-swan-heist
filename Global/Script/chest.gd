@@ -14,8 +14,10 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _ready():
-	chest_animation.play("Idle")
-	#chest_animation.animation_finished.connect(_on_animation_finished)
+	if worldState.sword_unlocked and self.name=="Chest_1":
+		chest_animation.play("Opened")
+	else:
+		chest_animation.play("Idle")
 
 func _on_animation_finished(anim_name):
 	if anim_name=="Open":
@@ -31,5 +33,7 @@ func open_chest():
 		await timer.timeout
 		if self.name=="Chest_1":
 			sword_obtained_animation._on_sword_obtained()
+			worldState.sword_unlocked=true
+			print(worldState.sword_unlocked)
 		chest_animation.play("Opened")
 	

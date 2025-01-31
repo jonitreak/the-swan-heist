@@ -2,9 +2,14 @@ extends CharacterBody2D
 
 class_name Player
 
+@export var worldState: Resource
+
 const max_speed = 200
 var last_direction:=Vector2(1,0)
 var sword:=bool(false)
+var crossbow:= bool(false)
+var staff:= bool(false)
+var hook:= bool(false)
 var can_move:=bool(true)
 var is_attacking:=bool(false)
 
@@ -12,6 +17,10 @@ func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	CaughtTransition.on_caught_transition_started.connect(_on_transition_started)
 	CaughtTransition.on_caught_transition_finished.connect(_on_transition_finished)
+	if worldState:
+		if worldState.current_weapon=="sword":
+			sword=true
+
 
 func _on_transition_started():
 	can_move = false  
@@ -23,6 +32,14 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		print("attaque")
 		play_attack_animation(last_direction)
+	if event.is_action_pressed("Change_to_sword"):
+		print(worldState.sword_unlocked)
+		if worldState.sword_unlocked:
+			sword=true
+			crossbow=false
+			hook=false
+			staff=false
+			worldState.current_weapon="sword"
 
 
 func _physics_process(delta: float) -> void:
@@ -45,19 +62,19 @@ func _physics_process(delta: float) -> void:
 			play_idle_animation(last_direction)
 
 func play_walk_animation(direction):
-	if self.get_meta("sword") : 
+	if sword : 
 		play_sword_walk_animation(direction)
 	else : 
 		play_basic_walk_animation(direction)
 		
 func play_idle_animation(direction):
-	if self.get_meta("sword") : 
+	if sword : 
 		play_sword_idle_animation(direction)
 	else : 
 		play_basic_idle_animation(direction)
 
 func play_attack_animation(direction):
-	if self.get_meta("sword") : 
+	if sword : 
 		is_attacking=true
 		play_sword_attack_animation(direction)
 	else : 

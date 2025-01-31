@@ -7,6 +7,14 @@ script/source = "extends Resource
 @export var crossbow_unlocked: bool
 @export var staff_unlocked: bool
 @export var hook_unlocked: bool
+@export var current_weapon:String
+
+func _init() -> void:
+	sword_unlocked=false
+	crossbow_unlocked=false
+	staff_unlocked=false
+	hook_unlocked=false
+	current_weapon=\"None\"
 "
 
 [resource]
@@ -15,3 +23,4 @@ sword_unlocked = false
 crossbow_unlocked = false
 staff_unlocked = false
 hook_unlocked = false
+current_weapon = "None"
