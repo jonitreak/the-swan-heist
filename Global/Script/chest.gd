@@ -9,7 +9,6 @@ signal on_sword_chest_animation_finished
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		print("chest1 ouvert")
 		open_chest()
 
 
@@ -27,13 +26,20 @@ func _on_animation_finished(anim_name):
 		chest_animation.play("Opened")
 	
 func open_chest(): 
-	if chest_animation.get_animation()=="Idle":
-		chest_animation.play("Open")
-		var timer = get_tree().create_timer(1.5)
-		await timer.timeout
-		if self.name=="Chest_1":
+	if self.name=="Chest_1":
+		if chest_animation.get_animation()=="Idle":
+			chest_animation.play("Open")
+			var timer = get_tree().create_timer(1.5)
+			await timer.timeout
 			sword_obtained_animation._on_sword_obtained()
 			worldState.sword_unlocked=true
-			print(worldState.sword_unlocked)
-		chest_animation.play("Opened")
+			chest_animation.play("Opened")
+	elif self.name=="Chest_2" and worldState.key1_obtained:
+		if chest_animation.get_animation()=="Idle":
+			chest_animation.play("Open")
+			var timer = get_tree().create_timer(1.5)
+			await timer.timeout
+			#sword_obtained_animation._on_sword_obtained()
+			worldState.hook_unlocked=true
+			chest_animation.play("Opened")
 	

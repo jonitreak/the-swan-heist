@@ -13,6 +13,7 @@ var animations : Dictionary = {
 	"down" : "MobIdleDown",
 	"down_right" : "MobIdleDownRight"
 }
+var pv=100
 
 
 func get_direction_angle():
@@ -50,3 +51,10 @@ func get_direction_from_angle(angle : float) -> String:
 
 func play_animation(animation_name : String) -> void:
 	$AnimatedSprite2D.play(animation_name)
+
+func damage(value=10):
+	pv=pv-value 
+	print(pv)
+	if pv<1: 
+		print("dead") 
+		queue_free()

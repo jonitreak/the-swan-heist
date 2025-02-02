@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bf347i1ehf8gj" path="res://Assets/Sprite/spritesheet/lava.png" id="2_87kj3"]
 [ext_resource type="Texture2D" uid="uid://bxrcqtbpdu4id" path="res://Assets/Sprite/spritesheet/currently_used/stonewallsblock.png" id="3_nql5m"]
 [ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="4_ot2mv"]
-[ext_resource type="Texture2D" uid="uid://cn5gbgqlp20lp" path="res://Assets/Sprite/spritesheet/currently_used/AoM2_resized.png" id="4_u10nr"]
+[ext_resource type="Texture2D" uid="uid://cn5gbgqlp20lp" path="res://Assets/Sprite/AnimatedSprite/Object/Chests/AoM2_resized.png" id="4_u10nr"]
 [ext_resource type="Script" path="res://Global/Script/chest.gd" id="4_uqkib"]
 [ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="5_6w5lb"]
 [ext_resource type="Resource" uid="uid://dvtxenwebujmh" path="res://Global/Ressource/worldState.tres" id="5_13odi"]
@@ -452,6 +452,7 @@ tile_set = SubResource("TileSet_y0n15")
 [node name="Chests" type="Node" parent="."]
 
 [node name="Chest_1" type="Area2D" parent="Chests"]
+show_behind_parent = true
 script = ExtResource("4_uqkib")
 worldState = ExtResource("5_13odi")
 
@@ -478,6 +479,7 @@ sword_obtained_animation = NodePath(".")
 player = NodePath("../../../Player")
 
 [node name="Chest_2" type="Area2D" parent="Chests"]
+show_behind_parent = true
 script = ExtResource("4_uqkib")
 worldState = ExtResource("5_13odi")
 
@@ -494,6 +496,7 @@ rotation = 1.06465
 shape = SubResource("CapsuleShape2D_vvgh3")
 
 [node name="Chest_3" type="Area2D" parent="Chests"]
+show_behind_parent = true
 script = ExtResource("4_uqkib")
 worldState = ExtResource("5_13odi")
 
@@ -510,6 +513,7 @@ rotation = 1.06465
 shape = SubResource("CapsuleShape2D_vvgh3")
 
 [node name="Chest_4" type="Area2D" parent="Chests"]
+show_behind_parent = true
 script = ExtResource("4_uqkib")
 worldState = ExtResource("5_13odi")
 

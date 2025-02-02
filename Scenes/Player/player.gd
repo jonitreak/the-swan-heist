@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var worldState: Resource
+@onready var swordHitDown= $SwordHitDown
 
 const max_speed = 200
 var last_direction:=Vector2(1,0)
@@ -14,6 +15,7 @@ var can_move:=bool(true)
 var is_attacking:=bool(false)
 
 func _ready(): 
+	swordHitDown.monitoring=false
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	CaughtTransition.on_caught_transition_started.connect(_on_transition_started)
 	CaughtTransition.on_caught_transition_finished.connect(_on_transition_finished)
@@ -30,16 +32,16 @@ func _on_transition_finished():
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		print("attaque")
 		play_attack_animation(last_direction)
 	if event.is_action_pressed("Change_to_sword"):
-		print(worldState.sword_unlocked)
 		if worldState.sword_unlocked:
 			sword=true
 			crossbow=false
 			hook=false
 			staff=false
 			worldState.current_weapon="sword"
+		if worldState.hook_unlocked:
+			hook=true
 
 
 func _physics_process(delta: float) -> void:
@@ -156,14 +158,16 @@ func play_sword_idle_animation(direction):
 		
 func play_sword_attack_animation(direction): 
 	if direction.x==0 and direction.y>0 : 
+		swordHitDown.monitoring=true
 		$AnimatedSprite2D.play("SwordAttackAnimationDown")
 		var timer = get_tree().create_timer(0.5)
 		await timer.timeout
 		is_attacking=false
+		swordHitDown.monitoring=false
 		$AnimatedSprite2D.play("SwordIdleAnimationDown")
 	else: 
 		is_attacking=false
-	
+
 
 func _on_spawn(position:Vector2,direction: String): 
 	global_position=position

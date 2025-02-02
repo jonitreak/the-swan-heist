@@ -8,7 +8,6 @@ func _ready():
 	sword_obtained_animation.visible=false
 
 func _on_sword_obtained():
-	print("signal bien reçu")
 	sword_obtained_animation.visible=true
 	sword_obtained_animation.position = player.position + Vector2(0, -50)
 	sword_obtained_animation.play("SwordObtained")

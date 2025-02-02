@@ -11,14 +11,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_body_entered(body):
+func _on_area_entered(body):
 	if body.is_in_group("Mob"):
-		mobs_in_zone.append(body)
-	print(body)
+		print("ok")
+		body.get_parent().damage(25)
+		
 
-func _on_body_exited(body):
-	if body.is_in_group("Mob"):
-		mobs_in_zone.erase(body)
 
 func has_mob_in_zone():
 	return mobs_in_zone.size() > 0

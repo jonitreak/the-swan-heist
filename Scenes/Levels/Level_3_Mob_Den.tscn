@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://ncmtacrakvhh"]
+[gd_scene load_steps=27 format=4 uid="uid://ncmtacrakvhh"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_gkc4v"]
 [ext_resource type="Texture2D" uid="uid://bf347i1ehf8gj" path="res://Assets/Sprite/spritesheet/lava.png" id="2_o11a2"]
@@ -7,10 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://bxhelt2xqkjyh" path="res://Assets/Sprite/spritesheet/currently_used/steak.png" id="5_33siv"]
 [ext_resource type="Script" path="res://Global/Script/steak_area.gd" id="5_51vbq"]
 [ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="5_o1k81"]
+[ext_resource type="Resource" uid="uid://dvtxenwebujmh" path="res://Global/Ressource/worldState.tres" id="6_3i4am"]
 [ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="6_c11yh"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="7_ase8y"]
 [ext_resource type="PackedScene" uid="uid://iuc3lfqfa2ag" path="res://Scenes/Mobs/BasicMobs/BasicMobs.tscn" id="8_0hwu0"]
 [ext_resource type="PackedScene" uid="uid://ci7iubv3m6v7e" path="res://Scenes/RayCast.tscn" id="9_k8uqa"]
+[ext_resource type="Script" path="res://Global/Script/key.gd" id="13_4atpy"]
+[ext_resource type="Texture2D" uid="uid://djge2dh4b0ufm" path="res://Assets/Sprite/AnimatedSprite/Object/Keys/keys_resized.png" id="14_ufy1v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mt1rh"]
 texture = ExtResource("2_o11a2")
@@ -2291,6 +2294,24 @@ sources/0 = SubResource("TileSetAtlasSource_3n8fs")
 radius = 11.8651
 height = 44.1035
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu6v5"]
+atlas = ExtResource("14_ufy1v")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewbpa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu6v5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u24s"]
+size = Vector2(36, 34)
+
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_gkc4v")
 
@@ -2313,6 +2334,7 @@ tile_set = SubResource("TileSet_pa2nv")
 position = Vector2(-286, -3)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("5_51vbq")
+worldState = ExtResource("6_3i4am")
 
 [node name="Steak" type="TileMapLayer" parent="SteakArea"]
 tile_map_data = PackedByteArray("AADt/wMAAAACAAEAAAA=")
@@ -2464,7 +2486,22 @@ cone_direction_angle = 45.0
 mob = NodePath("..")
 steak_area = NodePath("../../../SteakArea")
 
+[node name="Key" type="Area2D" parent="."]
+position = Vector2(-689, -11)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("13_4atpy")
+worldState = ExtResource("6_3i4am")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Key"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ewbpa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_5u24s")
+
 [connection signal="body_entered" from="SteakArea" to="SteakArea" method="_on_body_entered"]
+[connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
 
 [editable path="Doors/door_1"]
 [editable path="Doors/door_2"]

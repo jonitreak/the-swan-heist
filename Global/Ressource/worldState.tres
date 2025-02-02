@@ -8,6 +8,7 @@ script/source = "extends Resource
 @export var staff_unlocked: bool
 @export var hook_unlocked: bool
 @export var current_weapon:String
+@export var key1_obtained: bool
 
 func _init() -> void:
 	sword_unlocked=false
@@ -15,6 +16,7 @@ func _init() -> void:
 	staff_unlocked=false
 	hook_unlocked=false
 	current_weapon=\"None\"
+	key1_obtained=true
 "
 
 [resource]
@@ -24,3 +26,4 @@ crossbow_unlocked = false
 staff_unlocked = false
 hook_unlocked = false
 current_weapon = "None"
+key1_obtained = false

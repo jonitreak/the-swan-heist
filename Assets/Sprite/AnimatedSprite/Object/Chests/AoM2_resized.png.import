@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn5gbgqlp20lp"
-path="res://.godot/imported/AoM2_resized.png-86cb56590e6e6fb06b18f6f31c88b7d3.ctex"
+path="res://.godot/imported/AoM2_resized.png-6130e528ec7b8347701fc35067addd4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprite/spritesheet/currently_used/AoM2_resized.png"
-dest_files=["res://.godot/imported/AoM2_resized.png-86cb56590e6e6fb06b18f6f31c88b7d3.ctex"]
+source_file="res://Assets/Sprite/AnimatedSprite/Object/Chests/AoM2_resized.png"
+dest_files=["res://.godot/imported/AoM2_resized.png-6130e528ec7b8347701fc35067addd4e.ctex"]
 
 [params]
 

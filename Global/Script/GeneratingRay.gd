@@ -5,23 +5,29 @@ class_name Ray
 @export var cone_direction_angle : float = 0.0
 @export var mob: Mob
 @export var steak_area : Area2D
+@export var worldState: Resource
 
 var max_view_distance := 300
 var angle_between_rays := deg_to_rad(5.0)
 var raycasts : Array = []
 
+
 signal steak_activated
 
 
 func _ready():
-	if player :
-		if mob==null :
-			create_raycasts()
-		elif mob.visible: 
-			create_raycasts()
-			steak_area.connect("steak_activated", Callable(self, "_destroy"))
-		else: 
-			steak_area.connect("steak_activated", Callable(self, "_on_steak"))
+	if worldState:
+		if worldState.sword_unlocked:
+			pass
+		elif player :
+			if mob==null :
+				create_raycasts()
+			elif mob.visible: 
+				create_raycasts()
+				steak_area.connect("steak_activated", Callable(self, "_destroy"))
+			else: 
+				steak_area.connect("steak_activated", Callable(self, "_on_steak"))
+	
 		
 func _destroy():
 	for raycast in raycasts:
