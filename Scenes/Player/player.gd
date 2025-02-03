@@ -5,7 +5,7 @@ class_name Player
 @export var worldState: Resource
 @onready var swordHitDown= $SwordHitDown
 @onready var animationPlayer=$AnimatedSprite2D
-@onready var hookScene= $Hook
+@onready var tail= $Hook/Tail
 
 const max_speed = 200
 var last_direction:=Vector2(1,0)
@@ -15,6 +15,8 @@ var staff:= bool(false)
 var hook:= bool(false)
 var can_move:=bool(true)
 var is_attacking:=bool(false)
+var last_diagonal_direction: Vector2 = Vector2.ZERO
+
 
 func _ready(): 
 	swordHitDown.monitoring=false
@@ -99,7 +101,7 @@ func play_attack_animation(direction):
 		is_attacking=true
 		play_sword_attack_animation(direction)
 	elif hook:
-		hookScene.start_hook(direction)
+		tail.start_hook(direction)
 	else : 
 		pass
 

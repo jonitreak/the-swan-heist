@@ -10,9 +10,9 @@
 [ext_resource type="Resource" uid="uid://dvtxenwebujmh" path="res://Global/Ressource/worldState.tres" id="6_3i4am"]
 [ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="6_c11yh"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="7_ase8y"]
-[ext_resource type="PackedScene" uid="uid://iuc3lfqfa2ag" path="res://Scenes/Mobs/BasicMobs/BasicMobs.tscn" id="8_0hwu0"]
 [ext_resource type="PackedScene" uid="uid://ci7iubv3m6v7e" path="res://Scenes/RayCast.tscn" id="9_k8uqa"]
 [ext_resource type="Script" path="res://Global/Script/key.gd" id="13_4atpy"]
+[ext_resource type="PackedScene" uid="uid://f3v4s8shobas" path="res://Scenes/Mobs/BasicMobs/basic_mob.tscn" id="13_v8r5d"]
 [ext_resource type="Texture2D" uid="uid://djge2dh4b0ufm" path="res://Assets/Sprite/AnimatedSprite/Object/Keys/keys_resized.png" id="14_ufy1v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mt1rh"]
@@ -2392,95 +2392,115 @@ autoplay = true
 
 [node name="BasicsMobs" type="Node" parent="."]
 
-[node name="Mob_1" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
+[node name="Mob_1" parent="BasicsMobs" groups=["hookable"] instance=ExtResource("13_v8r5d")]
 position = Vector2(-155, -35)
-scale = Vector2(0.54, 0.54)
+collision_layer = 17
+up_direction = Vector2(-1, 0)
 direction_angle = -45.0
 
 [node name="Rays" parent="BasicsMobs/Mob_1" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
+scale = Vector2(1.08, 1.08)
 player = NodePath("../../../Player")
 cone_direction_angle = -45.0
 
-[node name="Mob_2" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
+[node name="Mob_2" parent="BasicsMobs" groups=["hookable"] instance=ExtResource("13_v8r5d")]
 position = Vector2(-265, 29)
-scale = Vector2(0.54, 0.54)
+collision_layer = 17
+up_direction = Vector2(-1, 0)
 direction_angle = 135.0
 
 [node name="Rays" parent="BasicsMobs/Mob_2" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
+scale = Vector2(1.08, 1.08)
 player = NodePath("../../../Player")
 cone_direction_angle = 135.0
 
-[node name="Mob_3" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
+[node name="Mob_3" parent="BasicsMobs" groups=["hookable"] instance=ExtResource("13_v8r5d")]
 position = Vector2(-293, -20)
-scale = Vector2(0.54, 0.54)
+collision_layer = 17
+up_direction = Vector2(-1, 0)
 direction_angle = -135.0
 
 [node name="Rays" parent="BasicsMobs/Mob_3" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
+scale = Vector2(1.08, 1.08)
 player = NodePath("../../../Player")
 cone_direction_angle = 45.0
 
-[node name="Mob_4" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
+[node name="Mob_4" parent="BasicsMobs" groups=["hookable"] instance=ExtResource("13_v8r5d")]
 position = Vector2(-378, -3)
-scale = Vector2(0.54, 0.54)
+collision_layer = 17
+up_direction = Vector2(-1, 0)
 direction_angle = -45.0
 
 [node name="Rays" parent="BasicsMobs/Mob_4" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
+scale = Vector2(1.08, 1.08)
 player = NodePath("../../../Player")
 cone_direction_angle = -45.0
 
-[node name="Mob_5" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
+[node name="Mob_5" parent="BasicsMobs" groups=["hookable"] instance=ExtResource("13_v8r5d")]
 position = Vector2(-350, 43)
-scale = Vector2(0.54, 0.54)
+collision_layer = 17
+up_direction = Vector2(-1, 0)
 direction_angle = 45.0
 
 [node name="Rays" parent="BasicsMobs/Mob_5" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
+scale = Vector2(1.08, 1.08)
 player = NodePath("../../../Player")
 cone_direction_angle = -135.0
 
-[node name="Mob_6" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
+[node name="Mob_6" parent="BasicsMobs" groups=["hookable"] instance=ExtResource("13_v8r5d")]
 position = Vector2(-532, -93)
-scale = Vector2(0.54, 0.54)
+collision_layer = 17
+up_direction = Vector2(-1, 0)
 direction_angle = -45.0
 
 [node name="Rays" parent="BasicsMobs/Mob_6" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
+scale = Vector2(1.08, 1.08)
 player = NodePath("../../../Player")
 cone_direction_angle = -45.0
 
-[node name="Mob_7" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
+[node name="Mob_7" parent="BasicsMobs" groups=["hookable"] instance=ExtResource("13_v8r5d")]
 position = Vector2(-421, 13)
-scale = Vector2(0.54, 0.54)
+collision_layer = 17
+up_direction = Vector2(-1, 0)
 direction_angle = -90.0
 
 [node name="Rays" parent="BasicsMobs/Mob_7" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
+scale = Vector2(1.08, 1.08)
 player = NodePath("../../../Player")
 
-[node name="Mob_8" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
+[node name="Mob_8" parent="BasicsMobs" groups=["hookable"] instance=ExtResource("13_v8r5d")]
 position = Vector2(-352, -25)
-scale = Vector2(0.54, 0.54)
+collision_layer = 17
+up_direction = Vector2(-1, 0)
 direction_angle = 45.0
 
 [node name="Rays" parent="BasicsMobs/Mob_8" node_paths=PackedStringArray("player", "mob", "steak_area") instance=ExtResource("9_k8uqa")]
+scale = Vector2(1.08, 1.08)
 player = NodePath("../../../Player")
 cone_direction_angle = -135.0
 mob = NodePath("..")
 steak_area = NodePath("../../../SteakArea")
 
-[node name="Mob_9" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
+[node name="Mob_9" parent="BasicsMobs" groups=["hookable"] instance=ExtResource("13_v8r5d")]
 position = Vector2(-653, -26)
-scale = Vector2(0.54, 0.54)
+collision_layer = 17
+up_direction = Vector2(-1, 0)
 direction_angle = 45.0
 
 [node name="Rays" parent="BasicsMobs/Mob_9" node_paths=PackedStringArray("player") instance=ExtResource("9_k8uqa")]
+scale = Vector2(1.08, 1.08)
 player = NodePath("../../../Player")
 cone_direction_angle = -125.0
 
-[node name="Mob_10" parent="BasicsMobs" instance=ExtResource("8_0hwu0")]
+[node name="Mob_10" parent="BasicsMobs" groups=["hookable"] instance=ExtResource("13_v8r5d")]
 visible = false
 position = Vector2(-352, -25)
-scale = Vector2(0.54, 0.54)
+collision_layer = 17
+up_direction = Vector2(-1, 0)
 direction_angle = -135.0
 
 [node name="Rays" parent="BasicsMobs/Mob_10" node_paths=PackedStringArray("player", "mob", "steak_area") instance=ExtResource("9_k8uqa")]
+scale = Vector2(1.08, 1.08)
 player = NodePath("../../../Player")
 cone_direction_angle = 45.0
 mob = NodePath("..")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=503 format=3 uid="uid://d26gkbo1px1b4"]
+[gd_scene load_steps=502 format=3 uid="uid://d26gkbo1px1b4"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_4hn2d"]
 [ext_resource type="Resource" uid="uid://dvtxenwebujmh" path="res://Global/Ressource/worldState.tres" id="2_l2hp1"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://blfraij6v6qxq" path="res://Assets/Sprite/AnimatedSprite/WithoutObject/isometric_character_walk.png" id="6_0yios"]
 [ext_resource type="Texture2D" uid="uid://ot57rhv127l6" path="res://Assets/Sprite/AnimatedSprite/Hook/isometric_character_walk_hook.png" id="6_2b0pa"]
 [ext_resource type="Script" path="res://Scenes/Player/SwordHit/SwordHit.gd" id="8_pr7gw"]
-[ext_resource type="Script" path="res://Scenes/Player/hook/hook.gd" id="11_1ohsy"]
 [ext_resource type="Texture2D" uid="uid://knm38l63whqb" path="res://Assets/Sprite/AnimatedSprite/Hook/Hook/hook.png" id="12_126nl"]
 [ext_resource type="PackedScene" uid="uid://g1dsl6ahnttc" path="res://Scenes/Hook/tail.tscn" id="12_grrsu"]
 
@@ -3652,6 +3651,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pbsv8"]
 radius = 4.0
+height = 26.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvs16"]
 size = Vector2(57, 41)
@@ -3689,7 +3689,7 @@ autoplay = "BasicIdleAnimationDown"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -19)
+position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_pbsv8")
 
 [node name="SwordHitDown" type="Area2D" parent="."]
@@ -3702,17 +3702,19 @@ shape = SubResource("RectangleShape2D_lvs16")
 
 [node name="Hook" type="Node2D" parent="."]
 position = Vector2(57, 27)
-script = ExtResource("11_1ohsy")
-tail_scene = ExtResource("12_grrsu")
 
 [node name="Head" type="AnimatedSprite2D" parent="Hook"]
+visible = false
+position = Vector2(-67, -41)
 rotation = 3.14159
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_kmjbt")
 animation = &"Visible"
 autoplay = "Empty"
 
-[node name="RayCast2D" type="RayCast2D" parent="Hook"]
+[node name="Tail" parent="Hook" instance=ExtResource("12_grrsu")]
+visible = false
+position = Vector2(-67, -50)
 
 [connection signal="area_entered" from="SwordHitDown" to="SwordHitDown" method="_on_area_entered"]
 [connection signal="body_entered" from="SwordHitDown" to="SwordHitDown" method="_on_body_entered"]
