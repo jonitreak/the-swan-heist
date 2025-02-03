@@ -10,7 +10,6 @@ func _ready():
 			self.visible=true
 
 func _on_body_entered(body: Node2D) -> void:
-	print(body)
 	if body is Player:
 		worldState.key1_obtained=true
 		self.visible=false

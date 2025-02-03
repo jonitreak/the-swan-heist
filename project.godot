@@ -42,6 +42,11 @@ folder_colors={
 "res://Scenes/Transition_screen/": "pink"
 }
 
+[global_group]
+
+hookable="Vrai si le grappin peut attraper cet objet"
+not_hookable="Vrai si le grappin bute contre cet objet"
+
 [input]
 
 take_damage={
@@ -52,6 +57,11 @@ take_damage={
 Change_to_sword={
 "deadzone": 0.5,
 "events": [null, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+]
+}
+Change_to_hook={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":120,"location":0,"echo":false,"script":null)
 ]
 }
 

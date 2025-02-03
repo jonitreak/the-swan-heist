@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://bbt1id5mp236e"]
+[gd_scene load_steps=16 format=4 uid="uid://bbt1id5mp236e"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_316t0"]
 [ext_resource type="Texture2D" uid="uid://bf347i1ehf8gj" path="res://Assets/Sprite/spritesheet/lava.png" id="2_0g6vw"]
 [ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="3_s7laa"]
 [ext_resource type="Texture2D" uid="uid://cfft7vaasbr83" path="res://Assets/Sprite/spritesheet/currently_used/furniture_reduite2.png" id="3_xfy0s"]
 [ext_resource type="Texture2D" uid="uid://bxrcqtbpdu4id" path="res://Assets/Sprite/spritesheet/currently_used/stonewallsblock.png" id="4_0tmps"]
-[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/player.tscn" id="4_cmd4d"]
+[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="4_cmd4d"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="5_p67kb"]
 [ext_resource type="PackedScene" uid="uid://c1q0vwh4a6216" path="res://Scenes/Life bar/LifeBar.tscn" id="8_xmrvi"]
 
@@ -210,6 +210,10 @@ tile_size = Vector2i(32, 16)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_qv5g5")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o6h64"]
+radius = 2.17578
+height = 57.3057
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_316t0")
 
@@ -264,6 +268,19 @@ volume_db = -5.0
 autoplay = true
 
 [node name="LifeBar" parent="." instance=ExtResource("8_xmrvi")]
+
+[node name="not_hookable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D_1" type="CollisionShape2D" parent="not_hookable_area"]
+position = Vector2(-23, -37)
+rotation = -2.07694
+shape = SubResource("CapsuleShape2D_o6h64")
+
+[node name="CollisionShape2D_2" type="CollisionShape2D" parent="not_hookable_area"]
+position = Vector2(-44.2103, 1.05421)
+rotation = 2.1293
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_o6h64")
 
 [editable path="Doors/door_0"]
 [editable path="Doors/door_1"]

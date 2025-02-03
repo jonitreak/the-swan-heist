@@ -1210,7 +1210,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7svg"]
 size = Vector2(64, 64)
 
-[node name="BasicMob" type="Node2D" groups=["Mob"]]
+[node name="BasicMob" type="Node2D" groups=["Mob", "hookable"]]
 script = ExtResource("1_l2hef")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

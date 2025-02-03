@@ -14,7 +14,7 @@ func _init() -> void:
 	sword_unlocked=false
 	crossbow_unlocked=false
 	staff_unlocked=false
-	hook_unlocked=false
+	hook_unlocked=true
 	current_weapon=\"None\"
 	key1_obtained=true
 "
@@ -24,6 +24,6 @@ script = SubResource("GDScript_waiw7")
 sword_unlocked = false
 crossbow_unlocked = false
 staff_unlocked = false
-hook_unlocked = false
+hook_unlocked = true
 current_weapon = "None"
 key1_obtained = false

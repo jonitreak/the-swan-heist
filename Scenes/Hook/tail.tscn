@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://g1dsl6ahnttc"]
+
+[ext_resource type="Texture2D" uid="uid://dpkexko6ruje2" path="res://Assets/Sprite/AnimatedSprite/Hook/Hook/chain.png" id="1_1tnlm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a0pc"]
+atlas = ExtResource("1_1tnlm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7173"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a0pc")
+}],
+"loop": true,
+"name": &"Visible",
+"speed": 5.0
+}]
+
+[node name="Tail" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_e7173")
+animation = &"Visible"
