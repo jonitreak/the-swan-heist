@@ -1,13 +1,17 @@
 extends Sprite2D
 
+class_name Hook
+
 @onready var ray_cast = $RayCast2D
 var distance: float = 150.0
 var hooked_object = null  
 var player_hook_to = null
 
+
 func _ready():
 	self.rotation=0
 	self.visible=0
+
 
 func normalize_to_angle(direction: Vector2) -> int:
 	if direction==Vector2(0,1):
@@ -123,3 +127,13 @@ func snap_to_iso_grid(position: Vector2) -> Vector2:
 	var grid_x = round(position.x / tile_size.x)
 	var grid_y = round(position.y / tile_size.y)
 	return Vector2(grid_x * tile_size.x, grid_y * tile_size.y)
+
+func stop_hooking(body, position):
+	if hooked_object == body:  
+		hooked_object.global_position = position  
+		hooked_object = null  
+		
+		var tween = get_tree().create_tween()
+		tween.tween_property(body, "scale", Vector2(0, 0), 1.0)  
+		await tween.finished
+		body.queue_free()

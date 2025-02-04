@@ -58,3 +58,5 @@ func damage(value=10):
 	if pv<1: 
 		print("dead") 
 		queue_free()
+
+	

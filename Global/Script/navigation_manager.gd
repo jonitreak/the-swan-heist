@@ -4,6 +4,7 @@ const scene_level1 = preload("res://Scenes/Levels/Level_1_spawn.tscn")
 const scene_level2 = preload("res://Scenes/Levels/Level_2_GardeEndormi.tscn")
 const scene_level3 = preload("res://Scenes/Levels/Level_3_Mob_Den.tscn")
 const scene_level4 = preload("res://Scenes/Levels/Level_4_Armurerie.tscn")
+const scene_level5=preload("res://Scenes/Levels/level_5_HookPuzzle.tscn")
 
 signal on_trigger_player_spawn
 var spawn_door_tag
@@ -19,6 +20,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load=scene_level3
 		"level4":
 			scene_to_load=scene_level4
+		"level5":
+			scene_to_load=scene_level5
 			
 
 	if scene_to_load!=null:
