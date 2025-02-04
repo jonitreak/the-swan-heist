@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1pdl6ajeyqxp"]
+[gd_scene load_steps=4 format=3 uid="uid://c1pdl6ajeyqxp"]
 
 [ext_resource type="Texture2D" uid="uid://ba6mn73170qcj" path="res://Assets/Sprite/dialog_box.png" id="1_0jhbb"]
+[ext_resource type="Script" path="res://Scenes/DialogBox/dialog_box.gd" id="1_enwn6"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_goxrf"]
 
@@ -12,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
 alignment = 1
+script = ExtResource("1_enwn6")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2

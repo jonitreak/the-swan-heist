@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bf347i1ehf8gj" path="res://Assets/Sprite/spritesheet/lava.png" id="2_7a60v"]
 [ext_resource type="Texture2D" uid="uid://bxrcqtbpdu4id" path="res://Assets/Sprite/spritesheet/currently_used/stonewallsblock.png" id="3_orcij"]
 [ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="4_6152e"]
-[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="5_3hq5v"]
+[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/player.tscn" id="5_3hq5v"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="6_vp0ty"]
 [ext_resource type="PackedScene" uid="uid://c1q0vwh4a6216" path="res://Scenes/Life bar/LifeBar.tscn" id="7_loeeq"]
 [ext_resource type="Script" path="res://Global/Script/kill_zone.gd" id="8_dufpa"]
@@ -202,6 +202,8 @@ player = NodePath("../Player")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(212, -250)
 shape = SubResource("CapsuleShape2D_1r54s")
+
+[node name="HUD" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

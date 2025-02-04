@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Global/Script/steak_area.gd" id="5_51vbq"]
 [ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="5_o1k81"]
 [ext_resource type="Resource" uid="uid://dvtxenwebujmh" path="res://Global/Ressource/worldState.tres" id="6_3i4am"]
-[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="6_c11yh"]
+[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/player.tscn" id="6_c11yh"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="7_ase8y"]
 [ext_resource type="PackedScene" uid="uid://ci7iubv3m6v7e" path="res://Scenes/RayCast.tscn" id="9_k8uqa"]
 [ext_resource type="Script" path="res://Global/Script/key.gd" id="13_4atpy"]
@@ -2519,6 +2519,8 @@ sprite_frames = SubResource("SpriteFrames_ewbpa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_5u24s")
+
+[node name="HUD" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="SteakArea" to="SteakArea" method="_on_body_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
