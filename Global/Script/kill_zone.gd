@@ -15,9 +15,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	var hook=player.get_node("Hook/Tail")
-	if body is Mob: 
+	if body is Mob or body is Block: 
 		hook.stop_hooking(body,body.global_position)
 		var timer = get_tree().create_timer(1.25)
 		await timer.timeout
 		key.visible=true
-		
