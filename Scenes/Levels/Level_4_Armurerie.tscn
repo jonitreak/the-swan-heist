@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="4_ot2mv"]
 [ext_resource type="Texture2D" uid="uid://cn5gbgqlp20lp" path="res://Assets/Sprite/AnimatedSprite/Object/Chests/AoM2_resized.png" id="4_u10nr"]
 [ext_resource type="Script" path="res://Global/Script/chest.gd" id="4_uqkib"]
-[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="5_6w5lb"]
+[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/player.tscn" id="5_6w5lb"]
 [ext_resource type="Resource" uid="uid://dvtxenwebujmh" path="res://Global/Ressource/worldState.tres" id="5_13odi"]
 [ext_resource type="Texture2D" uid="uid://m2gdsh3dqrpc" path="res://Assets/Sprite/AnimatedSprite/Object/objectAnimation.png" id="6_luujw"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="6_n3s2i"]
@@ -558,6 +558,8 @@ position_smoothing_enabled = true
 stream = ExtResource("6_n3s2i")
 volume_db = -5.0
 autoplay = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="Chests/Chest_1" to="Chests/Chest_1" method="_on_body_entered"]
 [connection signal="body_entered" from="Chests/Chest_2" to="Chests/Chest_2" method="_on_body_entered"]

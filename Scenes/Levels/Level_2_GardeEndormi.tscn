@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bxrcqtbpdu4id" path="res://Assets/Sprite/spritesheet/currently_used/stonewallsblock.png" id="3_m0hv4"]
 [ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="3_xf24p"]
 [ext_resource type="Texture2D" uid="uid://bjquuphdqr6d" path="res://Assets/Sprite/spritesheet/currently_used/accroche.png" id="4_efgpe"]
-[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="4_lcg32"]
+[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/player.tscn" id="4_lcg32"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="5_6sq7v"]
 [ext_resource type="PackedScene" uid="uid://c1q0vwh4a6216" path="res://Scenes/Life bar/LifeBar.tscn" id="7_0fex8"]
 [ext_resource type="PackedScene" uid="uid://f3v4s8shobas" path="res://Scenes/Mobs/BasicMobs/basic_mob.tscn" id="9_g12s8"]
@@ -501,6 +501,8 @@ position = Vector2(147, -303)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_mpx5r")
 animation = &"Visible"
+
+[node name="HUD" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
