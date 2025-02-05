@@ -81,7 +81,6 @@ func check_collision():
 	
 func pull_object():
 	var target_position = global_position + Vector2(0, 10)  # Attirer vers le joueur
-	print("target:",target_position)
 	while hooked_object and hooked_object.global_position.distance_to(target_position) > 5:
 		var direction = (target_position - hooked_object.global_position).normalized()
 		hooked_object.global_position += direction * 500 * get_process_delta_time()
@@ -89,16 +88,7 @@ func pull_object():
 	
 	# Centrer l'objet sur le bloc isométrique
 	if hooked_object:
-		if hooked_object.is_in_group("decalage"):
-			
-			var player = self.get_parent().get_parent()
-			hooked_object.global_position = snap_to_iso_grid(hooked_object.global_position)
-			var collision_shape = hooked_object.get_node("CollisionShape2D")
-			print("Hooked Collision Pos:", collision_shape.global_position)
-
-			
-		else:
-			hooked_object.global_position = snap_to_iso_grid(hooked_object.global_position)
+		hooked_object.global_position = snap_to_iso_grid(hooked_object.global_position)
 
 	hooked_object = null  # Lâche l'objet après l'attraction
 
@@ -137,12 +127,12 @@ func snap_to_iso_grid(position: Vector2) -> Vector2:
 	var grid_y = round(position.y / tile_size.y)
 	return Vector2(grid_x * tile_size.x, grid_y * tile_size.y)
 
-func stop_hooking(body, position):
+func stop_hooking(body, position,disapear):
 	if hooked_object == body:  
 		hooked_object.global_position = position  
 		hooked_object = null  
-		
-		var tween = get_tree().create_tween()
-		tween.tween_property(body, "scale", Vector2(0, 0), 1.0)  
-		await tween.finished
-		body.queue_free()
+		if disapear:
+			var tween = get_tree().create_tween()
+			tween.tween_property(body, "scale", Vector2(0, 0), 1.0)  
+			await tween.finished
+			body.queue_free()

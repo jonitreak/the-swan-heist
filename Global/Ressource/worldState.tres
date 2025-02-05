@@ -10,6 +10,7 @@ script/source = "extends Resource
 @export var current_weapon:String
 @export var key1_obtained: bool
 @export var door1_open :bool
+@export var door2_open :bool
 
 func _init() -> void:
 	sword_unlocked=false
@@ -18,7 +19,7 @@ func _init() -> void:
 	hook_unlocked=true
 	current_weapon=\"None\"
 	key1_obtained=true
-	door1_open=false
+	door2_open=false
 "
 
 [resource]
@@ -30,3 +31,4 @@ hook_unlocked = true
 current_weapon = "None"
 key1_obtained = false
 door1_open = false
+door2_open = false

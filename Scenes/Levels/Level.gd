@@ -7,9 +7,10 @@ func _ready():
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("ui_accept"):
-		for child in $HUD.get_children():
-			child.queue_free()
+	if self.name=="Level3":
+		if event.is_action_released("ui_accept"):
+			for child in $HUD.get_children():
+				child.queue_free()
 
 func _on_level_spawn(destination_tag : String):
 	var door_path= "Doors/door_"+destination_tag

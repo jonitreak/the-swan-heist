@@ -47,6 +47,7 @@ folder_colors={
 hookable="Vrai si le grappin peut attraper cet objet"
 not_hookable="Vrai si le grappin bute contre cet objet"
 player_hookable="True si le joueur peut s'accrocher à ce point et se déplacer"
+door_blocked=""
 
 [input]
 

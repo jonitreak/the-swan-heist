@@ -1,11 +1,11 @@
-[gd_scene load_steps=25 format=4 uid="uid://g5s02hiwenpu"]
+[gd_scene load_steps=26 format=4 uid="uid://g5s02hiwenpu"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_rdhw0"]
 [ext_resource type="Texture2D" uid="uid://bf347i1ehf8gj" path="res://Assets/Sprite/spritesheet/lava.png" id="2_88b85"]
 [ext_resource type="Texture2D" uid="uid://bxrcqtbpdu4id" path="res://Assets/Sprite/spritesheet/currently_used/stonewallsblock.png" id="3_m0hv4"]
 [ext_resource type="PackedScene" uid="uid://b8npxxjy8ukl0" path="res://Scenes/Door/door.tscn" id="3_xf24p"]
 [ext_resource type="Texture2D" uid="uid://bjquuphdqr6d" path="res://Assets/Sprite/spritesheet/currently_used/accroche.png" id="4_efgpe"]
-[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/player.tscn" id="4_lcg32"]
+[ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="4_lcg32"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="5_6sq7v"]
 [ext_resource type="PackedScene" uid="uid://c1q0vwh4a6216" path="res://Scenes/Life bar/LifeBar.tscn" id="7_0fex8"]
 [ext_resource type="PackedScene" uid="uid://f3v4s8shobas" path="res://Scenes/Mobs/BasicMobs/basic_mob.tscn" id="9_g12s8"]
@@ -157,7 +157,7 @@ sources/0 = SubResource("TileSetAtlasSource_wwoh0")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vb1o"]
 size = Vector2(14, 21)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fjnig"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thtg2"]
 texture = ExtResource("4_efgpe")
 texture_region_size = Vector2i(64, 64)
 2:0/0 = 0
@@ -333,7 +333,11 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_46opr"]
 tile_shape = 1
 tile_size = Vector2i(32, 16)
-sources/0 = SubResource("TileSetAtlasSource_fjnig")
+sources/0 = SubResource("TileSetAtlasSource_thtg2")
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d15gd"]
+a = Vector2(-0.594696, -16.5078)
+b = Vector2(-0.40918, 16.4546)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1r54s"]
 height = 94.0
@@ -455,9 +459,10 @@ worldState = ExtResource("12_m1l0n")
 [node name="CollisionShape2D" parent="Doors/door_3" index="0"]
 position = Vector2(258.283, 235.961)
 rotation = -1.85878
+shape = SubResource("SegmentShape2D_d15gd")
 
 [node name="Spawn" parent="Doors/door_3" index="1"]
-position = Vector2(256.011, 208.131)
+position = Vector2(256.975, 206.018)
 
 [node name="Player" parent="." instance=ExtResource("4_lcg32")]
 position = Vector2(132, -32)
