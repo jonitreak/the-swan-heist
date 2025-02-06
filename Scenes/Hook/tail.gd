@@ -48,7 +48,7 @@ func start_hook(direction):
 	await get_tree().create_timer(1).timeout
 	
 	if hooked_object:
-		await pull_object()  # Attire l'objet vers le joueur
+		await pull_object()  
 		
 		reverse_interpolate(distance)
 	elif player_hook_to:
@@ -80,17 +80,16 @@ func check_collision():
 
 	
 func pull_object():
-	var target_position = global_position + Vector2(0, 10)  # Attirer vers le joueur
+	var target_position = global_position + Vector2(0, 10)
 	while hooked_object and hooked_object.global_position.distance_to(target_position) > 5:
 		var direction = (target_position - hooked_object.global_position).normalized()
 		hooked_object.global_position += direction * 500 * get_process_delta_time()
 		await get_tree().process_frame
 	
-	# Centrer l'objet sur le bloc isométrique
 	if hooked_object:
 		hooked_object.global_position = snap_to_iso_grid(hooked_object.global_position)
 
-	hooked_object = null  # Lâche l'objet après l'attraction
+	hooked_object = null 
 
 func pull_player():
 	var player = self.get_parent().get_parent()
@@ -110,11 +109,11 @@ func pull_player():
 	
 func get_discrete_direction(direction: Vector2) -> Vector2:
 	if direction.length() == 0:
-		return Vector2.ZERO  # Si pas de mouvement, garder zéro
+		return Vector2.ZERO  
 	
 	var discrete_dir = Vector2.ZERO
 	
-	if abs(direction.x) > abs(direction.y):  # Privilégier l'axe dominant
+	if abs(direction.x) > abs(direction.y): 
 		discrete_dir.x = 1 if direction.x > 0 else -1
 	else:
 		discrete_dir.y = 1 if direction.y > 0 else -1
@@ -122,7 +121,7 @@ func get_discrete_direction(direction: Vector2) -> Vector2:
 	return discrete_dir
 	
 func snap_to_iso_grid(position: Vector2) -> Vector2:
-	var tile_size = Vector2(32, 16)  # Taille d’un bloc en isométrique
+	var tile_size = Vector2(32, 16)
 	var grid_x = round(position.x / tile_size.x)
 	var grid_y = round(position.y / tile_size.y)
 	return Vector2(grid_x * tile_size.x, grid_y * tile_size.y)

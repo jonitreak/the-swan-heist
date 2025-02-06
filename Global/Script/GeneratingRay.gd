@@ -31,9 +31,9 @@ func _ready():
 		
 func _destroy():
 	for raycast in raycasts:
-		raycast.queue_free()  # Supprime tous les RayCasts
-	raycasts.clear()  # Vide la liste
-	queue_free()  # Supprime le nœud principal
+		raycast.queue_free() 
+	raycasts.clear() 
+	queue_free() 
 	mob.visible=false
 
 func _on_steak():
@@ -62,9 +62,7 @@ func _physics_process(delta: float) -> void:
 		raycast.force_raycast_update()
 		if raycast.is_colliding():
 			var collider = raycast.get_collider()
-			print(collider.name)
 			if collider is Player:
-				print("ok")
 				NavigationManager.go_to_level("level1", "0")
 
 
