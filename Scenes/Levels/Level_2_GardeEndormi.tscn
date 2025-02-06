@@ -450,7 +450,7 @@ position = Vector2(-59.057, 222.737)
 [node name="Spawn" parent="Doors/door_2" index="1"]
 position = Vector2(-35.7636, 218.633)
 
-[node name="door_3" parent="Doors" instance=ExtResource("3_xf24p")]
+[node name="door_3" parent="Doors" groups=["door_blocked"] instance=ExtResource("3_xf24p")]
 position = Vector2(39, -13)
 rotation = -0.947714
 scale = Vector2(0.973878, -1.42877)
