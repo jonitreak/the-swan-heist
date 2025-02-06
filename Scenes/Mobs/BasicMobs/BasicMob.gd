@@ -13,6 +13,17 @@ var animations : Dictionary = {
 	"down" : "MobIdleDown",
 	"down_right" : "MobIdleDownRight"
 }
+
+var hurtAnimations : Dictionary = {
+	"right" : "MobHurtRight",
+	"up_right" : "MobHurtUpRight",
+	"up" : "MobHurtUp",
+	"up_left" : "MobHurtUpLeft",
+	"left" : "MobHurtLeft",
+	"down_left" : "MobHurtDownLeft",
+	"down" : "MobHurtDown",
+	"down_right" : "MobHurtDownRight"
+}
 var pv=100
 
 
@@ -29,6 +40,16 @@ func update_animation() -> void:
 	var direction = get_direction_from_angle(direction_angle)
 	var animation_name = animations.get(direction, "MobIdleDown")
 	play_animation(animation_name)
+
+func hurt_animation()->void:
+	var direction = get_direction_from_angle(direction_angle)
+	var animation_name = hurtAnimations.get(direction, "MobHurtDown")
+	play_animation(animation_name)
+	var timer = get_tree().create_timer(0.5)
+	await timer.timeout
+	animation_name = animations.get(direction, "MobIdleDown")
+	play_animation(animation_name)
+
 
 func get_direction_from_angle(angle : float) -> String:
 	if angle >= -22.5 and angle < 22.5:
@@ -55,8 +76,10 @@ func play_animation(animation_name : String) -> void:
 func damage(value=10):
 	pv=pv-value 
 	print(pv)
+	hurt_animation()
 	if pv<1: 
 		print("dead") 
 		queue_free()
-
+	var timer = get_tree().create_timer(0.5)
+	await timer.timeout
 	
