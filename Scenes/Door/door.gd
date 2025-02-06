@@ -19,5 +19,5 @@ func _on_body_entered(body: Node2D) -> void:
 			elif worldState.door2_open and self.name=="door_2":
 				NavigationManager.go_to_level(destination_level_tag,destination_door_tag)
 	else :
-		print(self.name)
+		pass
 	

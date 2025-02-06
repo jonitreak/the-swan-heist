@@ -56,7 +56,6 @@ func animate_hook():
 	
 	# Calcul de la distance de la queue
 	var hook_distance = int((player.position.distance_to(hook_target_position)) / 64)
-	print(hook_distance)
 	
 	# Créer les maillons de la queue
 	for i in range(1, hook_distance):  # Crée les maillons entre le joueur et le hook
@@ -74,8 +73,6 @@ func animate_hook():
 		head.look_at(hook_target_position)  # La tête regarde vers la position du grappin
 		
 	head.play("visible")
-	print("position de la tête :", head.position)
-	print("Position de l'objet: ", hook_target_position)
 
 func pull_hook_target():
 	while is_hooking and hook_target_object:

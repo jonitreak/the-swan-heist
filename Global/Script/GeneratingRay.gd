@@ -62,7 +62,9 @@ func _physics_process(delta: float) -> void:
 		raycast.force_raycast_update()
 		if raycast.is_colliding():
 			var collider = raycast.get_collider()
-			if collider == player:
+			print(collider.name)
+			if collider is Player:
+				print("ok")
 				NavigationManager.go_to_level("level1", "0")
 
 

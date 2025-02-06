@@ -11,7 +11,6 @@ func _ready():
 	animation_player.animation_finished.connect(_on_animation_finished)
 
 func _on_animation_finished(anim_name):
-	print(anim_name)
 	if anim_name=="fade_to_red":
 		on_caught_transition_finished.emit()
 		animation_player.play("fade_to_normal")

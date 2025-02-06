@@ -15,6 +15,8 @@ func _on_body_entered(body: Node2D) -> void:
 func _ready():
 	if worldState.sword_unlocked and self.name=="Chest_1":
 		chest_animation.play("Opened")
+	elif worldState.hook_unlocked and self.name=="Chest_2":
+		chest_animation.play("Opened")
 	else:
 		chest_animation.play("Idle")
 

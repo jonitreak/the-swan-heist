@@ -4,10 +4,12 @@ class_name Player
 
 @export var worldState: Resource
 @onready var swordHitDown= $SwordHitDown
+@onready var swordHitUp= $SwordHitup
+@onready var swordHitRight= $SwordHitRight
 @onready var animationPlayer=$AnimatedSprite2D
 @onready var tail= $Hook/Tail
 
-const max_speed = 200
+const max_speed = 150
 var last_direction:=Vector2(1,0)
 var sword:=bool(false)
 var crossbow:= bool(false)
@@ -17,9 +19,18 @@ var can_move:=bool(true)
 var is_attacking:=bool(false)
 var last_diagonal_direction: Vector2 = Vector2.ZERO
 
+func desactivate(objet):
+	objet.monitoring=false
+	objet.get_node("CollisionShape2D").disabled=true
+
+func activate(objet):
+	objet.monitoring=true
+	objet.get_node("CollisionShape2D").disabled=false
 
 func _ready(): 
-	swordHitDown.monitoring=false
+	desactivate(swordHitDown)
+	desactivate(swordHitUp)
+	desactivate(swordHitRight)
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	CaughtTransition.on_caught_transition_started.connect(_on_transition_started)
 	CaughtTransition.on_caught_transition_finished.connect(_on_transition_finished)
@@ -181,13 +192,29 @@ func play_sword_idle_animation(direction):
 		
 func play_sword_attack_animation(direction): 
 	if direction.x==0 and direction.y>0 : 
-		swordHitDown.monitoring=true
+		activate(swordHitDown)
 		animationPlayer.play("SwordAttackAnimationDown")
 		var timer = get_tree().create_timer(0.5)
 		await timer.timeout
 		is_attacking=false
-		swordHitDown.monitoring=false
+		desactivate(swordHitDown)
 		animationPlayer.play("SwordIdleAnimationDown")
+	elif direction.x==0 and direction.y<0 : 
+		activate(swordHitUp)
+		animationPlayer.play("SwordAttackAnimationUp")
+		var timer = get_tree().create_timer(0.5)
+		await timer.timeout
+		is_attacking=false
+		desactivate(swordHitUp)
+		animationPlayer.play("SwordIdleAnimationUp")
+	elif direction.x>0 and direction.y==0 : 
+		activate(swordHitRight)
+		animationPlayer.play("SwordAttackAnimationRight")
+		var timer = get_tree().create_timer(0.5)
+		await timer.timeout
+		is_attacking=false
+		desactivate(swordHitRight)
+		animationPlayer.play("SwordIdleAnimationRight")
 	else: 
 		is_attacking=false
 
