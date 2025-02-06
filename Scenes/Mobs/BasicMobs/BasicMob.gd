@@ -2,6 +2,8 @@ extends Node2D
 class_name Mob
 
 @export var direction_angle : float = 0.0
+@onready var sfx_hurt = $AudioStreamPlayer2D
+
 
 var animations : Dictionary = {
 	"right" : "MobIdleRight",
@@ -77,8 +79,11 @@ func damage(value=10):
 	pv=pv-value 
 	print(pv)
 	hurt_animation()
+	sfx_hurt.play()
 	if pv<1: 
 		print("dead") 
+		var timer = get_tree().create_timer(0.5)
+		await timer.timeout
 		queue_free()
 	var timer = get_tree().create_timer(0.5)
 	await timer.timeout

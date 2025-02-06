@@ -8,6 +8,8 @@ var closed_hole:TileMapLayer
 var switch_door: TileMapLayer
 @onready var collisionShape=$CollisionShape2D
 @onready var scene=self.get_parent().get_parent()
+@onready var sfx_drop= $AudioStreamPlayer2D
+@onready var sfx_switch = self.get_node("Switch")
 var is_hole:bool
 var is_switch:bool
 
@@ -24,6 +26,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	var hook=player.get_node("Hook/Tail")
 	if body is Mob: 
+		sfx_drop.play()
 		hook.stop_hooking(body,body.global_position,true)
 		var timer = get_tree().create_timer(1.25)
 		await timer.timeout
@@ -70,6 +73,7 @@ func _on_body_entered(body: Node2D) -> void:
 			collisionShape.disabled=true
 			check_puzzl_solve()
 		elif is_switch:
+			sfx_switch.play()
 			switch_door.visible=false
 			switch_door.collision_enabled=false
 

@@ -8,6 +8,7 @@ class_name Player
 @onready var swordHitRight= $SwordHitRight
 @onready var animationPlayer=$AnimatedSprite2D
 @onready var tail= $Hook/Tail
+@onready var sfx_sword=$AudioStreamPlayer2D
 
 const max_speed = 150
 var last_direction:=Vector2(1,0)
@@ -110,6 +111,7 @@ func play_idle_animation(direction):
 func play_attack_animation(direction):
 	if sword : 
 		is_attacking=true
+		sfx_sword.play()
 		play_sword_attack_animation(direction)
 	elif hook:
 		tail.start_hook(direction)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://g5s02hiwenpu"]
+[gd_scene load_steps=28 format=4 uid="uid://g5s02hiwenpu"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_rdhw0"]
 [ext_resource type="Texture2D" uid="uid://bf347i1ehf8gj" path="res://Assets/Sprite/spritesheet/lava.png" id="2_88b85"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://Scenes/Levels/keyLvl2.gd" id="11_0md71"]
 [ext_resource type="Texture2D" uid="uid://djge2dh4b0ufm" path="res://Assets/Sprite/AnimatedSprite/Object/Keys/keys_resized.png" id="11_eubug"]
 [ext_resource type="Resource" uid="uid://dvtxenwebujmh" path="res://Global/Ressource/worldState.tres" id="12_m1l0n"]
+[ext_resource type="AudioStream" uid="uid://bdeh8cdytvug" path="res://Assets/Music/sound_effects/lava_dropp.mp3" id="12_spgbk"]
+[ext_resource type="AudioStream" uid="uid://bt0db1lfe342a" path="res://Assets/Music/sound_effects/key-get.mp3" id="14_r7v46"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3da3o"]
 texture = ExtResource("2_88b85")
@@ -493,6 +495,9 @@ key = NodePath("../Key")
 position = Vector2(212, -250)
 shape = SubResource("CapsuleShape2D_1r54s")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="KillZone"]
+stream = ExtResource("12_spgbk")
+
 [node name="Key" type="Area2D" parent="."]
 script = ExtResource("11_0md71")
 worldState = ExtResource("12_m1l0n")
@@ -506,6 +511,9 @@ position = Vector2(147, -303)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_mpx5r")
 animation = &"Visible"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Key"]
+stream = ExtResource("14_r7v46")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

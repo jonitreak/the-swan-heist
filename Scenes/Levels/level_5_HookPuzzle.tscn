@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://cwed54oxgb6r1"]
+[gd_scene load_steps=69 format=4 uid="uid://cwed54oxgb6r1"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_xe1q1"]
 [ext_resource type="Texture2D" uid="uid://bf347i1ehf8gj" path="res://Assets/Sprite/spritesheet/lava.png" id="2_7a60v"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="6_vp0ty"]
 [ext_resource type="PackedScene" uid="uid://c1q0vwh4a6216" path="res://Scenes/Life bar/LifeBar.tscn" id="7_loeeq"]
 [ext_resource type="Script" path="res://Global/Script/kill_zone.gd" id="8_dufpa"]
+[ext_resource type="AudioStream" uid="uid://bh4dd67jq0lt5" path="res://Assets/Music/sound_effects/light_switch.mp3" id="10_1nkyi"]
 [ext_resource type="Texture2D" uid="uid://bjquuphdqr6d" path="res://Assets/Sprite/spritesheet/currently_used/accroche.png" id="12_f3735"]
 [ext_resource type="Script" path="res://Global/Script/lever.gd" id="13_450jd"]
 [ext_resource type="Resource" uid="uid://dvtxenwebujmh" path="res://Global/Ressource/worldState.tres" id="14_fn7ep"]
@@ -1777,6 +1778,9 @@ player = NodePath("../../Player")
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_evpp8")
 
+[node name="Switch" type="AudioStreamPlayer2D" parent="KillZone/KillZone_11"]
+stream = ExtResource("10_1nkyi")
+
 [node name="KillZone_12" type="Area2D" parent="KillZone" node_paths=PackedStringArray("player")]
 position = Vector2(-70, 43)
 script = ExtResource("8_dufpa")
@@ -1787,6 +1791,9 @@ position = Vector2(-70, -135)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_evpp8")
 
+[node name="Switch" type="AudioStreamPlayer2D" parent="KillZone/KillZone_12"]
+stream = ExtResource("10_1nkyi")
+
 [node name="KillZone_13" type="Area2D" parent="KillZone" node_paths=PackedStringArray("player")]
 position = Vector2(-70, 43)
 script = ExtResource("8_dufpa")
@@ -1796,6 +1803,9 @@ player = NodePath("../../Player")
 position = Vector2(92, -309)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_evpp8")
+
+[node name="Switch" type="AudioStreamPlayer2D" parent="KillZone/KillZone_13"]
+stream = ExtResource("10_1nkyi")
 
 [node name="Player" parent="." instance=ExtResource("5_3hq5v")]
 top_level = true

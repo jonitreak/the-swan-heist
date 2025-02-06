@@ -1,4 +1,4 @@
-[gd_scene load_steps=512 format=3 uid="uid://d26gkbo1px1b4"]
+[gd_scene load_steps=514 format=3 uid="uid://d26gkbo1px1b4"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_4hn2d"]
 [ext_resource type="Resource" uid="uid://dvtxenwebujmh" path="res://Global/Ressource/worldState.tres" id="2_l2hp1"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://Scenes/Player/SwordHit/SwordHit.gd" id="8_pr7gw"]
 [ext_resource type="Texture2D" uid="uid://knm38l63whqb" path="res://Assets/Sprite/AnimatedSprite/Hook/Hook/hook.png" id="12_126nl"]
 [ext_resource type="PackedScene" uid="uid://g1dsl6ahnttc" path="res://Scenes/Hook/tail.tscn" id="12_grrsu"]
+[ext_resource type="AudioStream" uid="uid://cphyebu8vs8qc" path="res://Assets/Music/sound_effects/pulling_chain.mp3" id="13_qi7jn"]
+[ext_resource type="AudioStream" uid="uid://sk0qka4j8aux" path="res://Assets/Music/sound_effects/sword.mp3" id="14_xu28i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jq36"]
 atlas = ExtResource("3_le16n")
@@ -3804,6 +3806,12 @@ autoplay = "Empty"
 [node name="Tail" parent="Hook" instance=ExtResource("12_grrsu")]
 visible = false
 position = Vector2(-67, -50)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Hook/Tail"]
+stream = ExtResource("13_qi7jn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_xu28i")
 
 [connection signal="area_entered" from="SwordHitDown" to="SwordHitDown" method="_on_area_entered"]
 [connection signal="body_entered" from="SwordHitDown" to="SwordHitDown" method="_on_body_entered"]

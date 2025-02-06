@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dho0ya6sp6a0l"]
+[gd_scene load_steps=3 format=3 uid="uid://dho0ya6sp6a0l"]
 
 [ext_resource type="PackedScene" uid="uid://bbt1id5mp236e" path="res://Scenes/Levels/Level_1_spawn.tscn" id="3_0www8"]
+[ext_resource type="Script" path="res://Global/global_audio.gd" id="3_008cy"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Level1" parent="." instance=ExtResource("3_0www8")]
+
+[node name="GlobalAudio" type="Node" parent="."]
+script = ExtResource("3_008cy")

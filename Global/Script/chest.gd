@@ -4,7 +4,7 @@ extends Area2D
 signal on_sword_chest_animation_finished
 @onready var chest_animation=$ChestAnimation
 @onready var sword_obtained_animation=$Sword
-
+@onready var sfx_chest=$AudioStreamPlayer2D
 @export var worldState: Resource
 
 func _on_body_entered(body: Node2D) -> void:
@@ -30,6 +30,7 @@ func _on_animation_finished(anim_name):
 func open_chest(): 
 	if self.name=="Chest_1":
 		if chest_animation.get_animation()=="Idle":
+			sfx_chest.play()
 			chest_animation.play("Open")
 			var timer = get_tree().create_timer(1.5)
 			await timer.timeout
@@ -38,6 +39,7 @@ func open_chest():
 			chest_animation.play("Opened")
 	elif self.name=="Chest_2" and worldState.key1_obtained:
 		if chest_animation.get_animation()=="Idle":
+			sfx_chest.play()
 			chest_animation.play("Open")
 			var timer = get_tree().create_timer(1.5)
 			await timer.timeout

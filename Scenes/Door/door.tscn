@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8npxxjy8ukl0"]
+[gd_scene load_steps=4 format=3 uid="uid://b8npxxjy8ukl0"]
 
 [ext_resource type="Script" path="res://Scenes/Door/door.gd" id="1_0oc1o"]
+[ext_resource type="AudioStream" uid="uid://dw40swu3mpm1b" path="res://Assets/Music/sound_effects/door.mp3" id="2_4qrjw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_31nhl"]
 
@@ -12,5 +13,8 @@ position = Vector2(-0.5, 0)
 shape = SubResource("CapsuleShape2D_31nhl")
 
 [node name="Spawn" type="Marker2D" parent="."]
+
+[node name="Sfx_door" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_4qrjw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

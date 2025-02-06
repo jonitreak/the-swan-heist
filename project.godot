@@ -22,6 +22,7 @@ NavigationManager="*res://Global/Script/navigation_manager.gd"
 CaughtTransition="*res://Scenes/Transition_screen/caught_transition.tscn"
 GeneratingRay="*res://Global/Script/GeneratingRay.gd"
 PlayerState="*res://Global/Script/playerState.gd"
+GlobalAudio="*res://Global/global_audio.gd"
 
 [display]
 

@@ -6,6 +6,7 @@ const scene_level3 = preload("res://Scenes/Levels/Level_3_Mob_Den.tscn")
 const scene_level4 = preload("res://Scenes/Levels/Level_4_Armurerie.tscn")
 const scene_level5=preload("res://Scenes/Levels/level_5_HookPuzzle.tscn")
 
+
 signal on_trigger_player_spawn
 var spawn_door_tag
 

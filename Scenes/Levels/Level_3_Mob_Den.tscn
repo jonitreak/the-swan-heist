@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://ncmtacrakvhh"]
+[gd_scene load_steps=29 format=4 uid="uid://ncmtacrakvhh"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_gkc4v"]
 [ext_resource type="Texture2D" uid="uid://bf347i1ehf8gj" path="res://Assets/Sprite/spritesheet/lava.png" id="2_o11a2"]
@@ -10,10 +10,12 @@
 [ext_resource type="Resource" uid="uid://dvtxenwebujmh" path="res://Global/Ressource/worldState.tres" id="6_3i4am"]
 [ext_resource type="PackedScene" uid="uid://d26gkbo1px1b4" path="res://Scenes/Player/Player.tscn" id="6_c11yh"]
 [ext_resource type="AudioStream" uid="uid://cmquhl3e4pqan" path="res://Assets/Music/prison.mp3" id="7_ase8y"]
+[ext_resource type="AudioStream" uid="uid://dpt0o355vbi74" path="res://Assets/Music/sound_effects/throw_steak.mp3" id="8_8ijcw"]
 [ext_resource type="PackedScene" uid="uid://ci7iubv3m6v7e" path="res://Scenes/RayCast.tscn" id="9_k8uqa"]
 [ext_resource type="Script" path="res://Global/Script/key.gd" id="13_4atpy"]
 [ext_resource type="PackedScene" uid="uid://f3v4s8shobas" path="res://Scenes/Mobs/BasicMobs/basic_mob.tscn" id="13_v8r5d"]
 [ext_resource type="Texture2D" uid="uid://djge2dh4b0ufm" path="res://Assets/Sprite/AnimatedSprite/Object/Keys/keys_resized.png" id="14_ufy1v"]
+[ext_resource type="AudioStream" uid="uid://bt0db1lfe342a" path="res://Assets/Music/sound_effects/key-get.mp3" id="15_qp5b2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mt1rh"]
 texture = ExtResource("2_o11a2")
@@ -2346,6 +2348,10 @@ position = Vector2(-576, 32)
 rotation = 1.4207
 shape = SubResource("CapsuleShape2D_g1k5u")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SteakArea"]
+stream = ExtResource("8_8ijcw")
+volume_db = 8.0
+
 [node name="Doors" type="Node" parent="."]
 
 [node name="door_1" parent="Doors" instance=ExtResource("5_o1k81")]
@@ -2521,6 +2527,9 @@ sprite_frames = SubResource("SpriteFrames_ewbpa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_5u24s")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Key"]
+stream = ExtResource("15_qp5b2")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

@@ -3,6 +3,7 @@ extends Sprite2D
 class_name Hook
 
 @onready var ray_cast = $RayCast2D
+@onready var sfx_chain= $AudioStreamPlayer2D
 var distance: float = 150.0
 var hooked_object = null  
 var player_hook_to = null
@@ -39,6 +40,7 @@ func interpolate(length: float, duration: float = 0.2):
 	self.region_enabled = true
 
 func start_hook(direction):
+	sfx_chain.play()
 	self.visible = true
 	var initial_rotation = self.rotation_degrees
 	var angle = normalize_to_angle(direction)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=199 format=3 uid="uid://f3v4s8shobas"]
+[gd_scene load_steps=200 format=3 uid="uid://f3v4s8shobas"]
 
 [ext_resource type="Script" path="res://Scenes/Mobs/BasicMobs/BasicMob.gd" id="1_apxn2"]
 [ext_resource type="Texture2D" uid="uid://bhrdhc7suxx8" path="res://Assets/Sprite/AnimatedSprite/Mob/mob_idle.png" id="1_sx38n"]
 [ext_resource type="Texture2D" uid="uid://g7p1w5lysve3" path="res://Assets/Sprite/AnimatedSprite/Mob/mob_hurt.png" id="2_tnin6"]
 [ext_resource type="Texture2D" uid="uid://cldmrh87angkj" path="res://Assets/Sprite/AnimatedSprite/Mob/mob_walk.png" id="2_u0wpe"]
+[ext_resource type="AudioStream" uid="uid://cat1sxo83k4qj" path="res://Assets/Music/sound_effects/hurt.mp3" id="5_tngev"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2kgx"]
 atlas = ExtResource("2_tnin6")
@@ -1489,3 +1490,6 @@ autoplay = "MobIdleDown"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Mob"]]
 position = Vector2(-1, -27)
 shape = SubResource("RectangleShape2D_h7svg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_tngev")

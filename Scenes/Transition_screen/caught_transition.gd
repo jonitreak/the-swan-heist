@@ -5,6 +5,7 @@ signal on_caught_transition_started
 
 @onready var color_rect=$ColorRect
 @onready var animation_player=$AnimationPlayer
+@onready var sfx_detected=$AudioStreamPlayer2D
 
 func _ready():
 	color_rect.visible=false
@@ -18,6 +19,7 @@ func _on_animation_finished(anim_name):
 		color_rect.visible=false
 	
 func transition(): 
+	sfx_detected.play()
 	color_rect.visible=true
 	on_caught_transition_started.emit()
 	animation_player.play("fade_to_red")
