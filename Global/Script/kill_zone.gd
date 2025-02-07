@@ -12,6 +12,7 @@ var switch_door: TileMapLayer
 @onready var sfx_switch = self.get_node("Switch")
 var is_hole:bool
 var is_switch:bool
+var dialog_box = preload("res://Scenes/DialogBox/DialogBox.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -92,6 +93,13 @@ func check_puzzl_solve():
 	res= res and scene.get_node("Holes/Closed_Hole_4").visible==true
 	if res : 
 		print("puzzle résolu")
+		$HUD.add_child(dialog_box.instantiate())
+		$HUD/DialogBox.print("'Mais ou est mon Steak ?'\nUn garde cherche un steak")
 		if worldState: 
 			worldState.door2_open=true
 		
+func _input(event: InputEvent) -> void:
+	if self.name=="Level3":
+		if event.is_action_released("ui_accept"):
+			for child in $HUD.get_children():
+				child.queue_free()

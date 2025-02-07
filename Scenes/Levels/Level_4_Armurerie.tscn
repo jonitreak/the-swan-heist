@@ -485,6 +485,8 @@ player = NodePath("../../../Player")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chests/Chest_1"]
 stream = ExtResource("9_h7w5u")
 
+[node name="HUD" type="CanvasLayer" parent="Chests/Chest_1"]
+
 [node name="Chest_2" type="Area2D" parent="Chests"]
 show_behind_parent = true
 script = ExtResource("4_uqkib")
@@ -504,6 +506,8 @@ shape = SubResource("CapsuleShape2D_vvgh3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chests/Chest_2"]
 stream = SubResource("AudioStreamMP3_fkjp5")
+
+[node name="HUD" type="CanvasLayer" parent="Chests/Chest_2"]
 
 [node name="Chest_3" type="Area2D" parent="Chests"]
 show_behind_parent = true
@@ -525,6 +529,8 @@ shape = SubResource("CapsuleShape2D_vvgh3")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chests/Chest_3"]
 stream = ExtResource("9_h7w5u")
 
+[node name="HUD" type="CanvasLayer" parent="Chests/Chest_3"]
+
 [node name="Chest_4" type="Area2D" parent="Chests"]
 show_behind_parent = true
 script = ExtResource("4_uqkib")
@@ -544,6 +550,8 @@ shape = SubResource("CapsuleShape2D_vvgh3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chests/Chest_4"]
 stream = ExtResource("9_h7w5u")
+
+[node name="HUD" type="CanvasLayer" parent="Chests/Chest_4"]
 
 [node name="Doors" type="Node" parent="."]
 

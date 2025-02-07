@@ -1,6 +1,7 @@
 extends Node2D
 
 var dialog_box = preload("res://Scenes/DialogBox/DialogBox.tscn")
+@export var worldState: Resource
 
 func _ready():
 	if NavigationManager.spawn_door_tag!=null:
@@ -18,9 +19,12 @@ func _on_level_spawn(destination_tag : String):
 	NavigationManager.trigger_player_spawn(door.spawn.global_position,door.spawn_direction)
 	
 	if self.name == "Level3":
-		$HUD.add_child(dialog_box.instantiate())
-		$HUD/DialogBox.print("Mais ou est mon Steak ?")
-
+		if worldState:
+			if worldState.sword_unlocked:
+				pass
+			else :
+				$HUD.add_child(dialog_box.instantiate())
+				$HUD/DialogBox.print("'Mais ou est mon Steak ?'\nUn garde cherche un steak")
 
 
 func _on_chest_4_body_entered(body: Node2D) -> void:

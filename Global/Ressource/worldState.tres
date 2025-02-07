@@ -31,4 +31,4 @@ hook_unlocked = false
 current_weapon = "None"
 key1_obtained = false
 door1_open = false
-door2_open = false
+door2_open = true
